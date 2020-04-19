@@ -1,0 +1,46 @@
+.likedSongs-page {
+  background-image: linear-gradient(rgb(37, 0, 80) 0%, black 80%);
+  padding-top: 100px;
+}
+.label {
+  color: white;
+  font-size: 28px;
+  padding-top: 20px;
+}
+.playlist {
+  list-style: none;
+  cursor: pointer;
+}
+
+.playlist li {
+  padding: 20px;
+  color: white;
+  background-color: inherit;
+}
+.playlist li:hover {
+  background-color: rgba(37, 0, 80, 0.5);
+}
+
+.music {
+  float: left;
+  color: darkgray;
+}
+.duration {
+  float: right;
+  color: darkgray;
+}
+
+.playlist li i a {
+  float: left;
+  font-size: 12px;
+  color: darkgray;
+}
+.playlist li i a:hover {
+  color: white;
+  text-decoration: underline;
+}
+.playlist li span {
+  float: left;
+  padding-left: 20px;
+  font-size: 14px;
+}

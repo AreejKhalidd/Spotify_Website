@@ -1,20 +1,20 @@
 import React from "react";
 import "./DiscoverCard.css";
 
-const DiscoverCard = ({ header, photo, description }) => {
+const DiscoverCard = ({ img, header, description, link }) => {
   return (
-    <a href="/playlist/haha" className="column">
-      <div className="card">
+    <div className="column">
+      <a href={link} className="card">
         <h3>
-          <img alt={header} src={photo} />
+          <img alt={header} src={img} />
         </h3>
-        <p className="albumName">{header}</p>
+        <h3 className="albumName">{header}</h3>
         <p className="albumDescription">{description}</p>
-        <button className="playButton">
+        {/* <button className="playButton">
           <i class="fa">&#xf04b;</i>
-        </button>
-      </div>
-    </a>
+        </button> */}
+      </a>
+    </div>
   );
 };
 

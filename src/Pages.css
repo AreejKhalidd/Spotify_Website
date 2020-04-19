@@ -204,14 +204,6 @@
   font-size: 12px;
 }
 
-.likedSongs-page {
-  background-image: linear-gradient(rgb(37, 0, 80), black);
-  height: 10000px;
-  text-align: center;
-  padding-top: 100px;
-  color: white;
-}
-
 .login-page {
   text-align: center;
   padding-top: 100px;

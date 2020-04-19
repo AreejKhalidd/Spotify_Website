@@ -6,7 +6,7 @@ import PopularPlaylists from "./PopularPlaylists";
 import Chill from "./Chill";
 import Arab from "./Arab";
 import "./HomeContent.css";
-import {Artists} from "./Artistsdata";
+import { Artists } from "./Artistsdata";
 
 class HomeContent extends Component {
   constructor() {

@@ -1,0 +1,59 @@
+#playlist-icon {
+  margin-bottom: 8px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+}
+#playlist-icon:focus {
+  background-color: black;
+  border-radius: 5px;
+}
+#prodcast-icon:focus {
+  background-color: black;
+  border-radius: 5px;
+}
+#albums-icon:focus {
+  background-color: black;
+  border-radius: 5px;
+}
+#artists-icon:focus {
+  background-color: black;
+  border-radius: 5px;
+}
+
+#prodcast-icon {
+  margin-bottom: 8px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+}
+
+#artists-icon {
+  margin-bottom: 8px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+}
+
+#albums-icon {
+  margin-bottom: 8px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+}

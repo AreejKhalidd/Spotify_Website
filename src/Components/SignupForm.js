@@ -98,6 +98,7 @@ componentDidMount(){
       
  
   const aa= process.env.REACT_APP_URL + "/users/signUp";
+  console.log(process.env)
   console.log(aa) //for debugging =abm
 
   //let data=this.state.datatosend;

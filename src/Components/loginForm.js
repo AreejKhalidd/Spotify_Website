@@ -79,9 +79,7 @@ this.setState({user:resp})
         const url=process.env.REACT_APP_URL + "/users/login";
 
         let data=(this.state.user)
-        console.log(data)
-        console.log(url)
-
+        console.log(this.state.user)
 
         fetch(url, {mode: 'cors'},{
         method:'POST',
@@ -94,7 +92,7 @@ this.setState({user:resp})
      resultss.json().then((resp) =>{
     console.warn(resp)
     var h =resp.token;
-    console.log(h)
+   
     localStorage.setItem('tokenfromlogin',h)
     this.setState({
       loggedIn: true
@@ -104,7 +102,7 @@ this.setState({user:resp})
     })
   
       }
-      if(this.state.loggedIn===false && this.isValid()) {
+      if(this.state.loggedIn===false) {
        { 
          this.setState({loggingError:"Incorrect user or password"})
          }

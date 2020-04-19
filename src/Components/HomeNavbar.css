@@ -1,0 +1,26 @@
+/************************************* UPGRADE BUTTON FOR HOME AND ARTIST PAGE*****************************************************/
+
+#upgrade-icon {
+  background-color: inherit;
+  color: white;
+  font-family: Raleway-SemiBold;
+  letter-spacing: 1px;
+  line-height: 50px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  padding-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: 900;
+}
+#upgrade-icon:hover {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+.upgrade {
+  margin-left: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

@@ -77,11 +77,11 @@ function App() {
             <Router>
               <Navbar />
               {/* <Route path="/Home" component={Navbar} /> */}
-              <Route path="/collection/podcasts" component={Podcasts} />
-              <Route path="/collection/artists" component={Artists} />
-              <Route path="/collection/albums" component={Albums} />
+              <Route path="/collection/podcasts" />
+              <Route path="/collection/artists" />
+              <Route path="/collection/albums" />
               <Navbar />
-              <Route path="/Home" component={Navbar} />
+              <Route path="/Home" />
               <Route path="/collection/podcasts" />
               <Route path="/collection/artists" />
               <Route path="/collection/albums" />

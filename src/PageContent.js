@@ -230,12 +230,12 @@ class PageContent extends Component {
       );
     } else if (
       window.location.href ===
-      "http://localhost:3000" + "/browse/discover"
+      process.env.REACT_APP_CLIENT_URL + "/browse/discover"
     ) {
       return <DiscoverPage />;
     } else if (
       window.location.href ===
-      "http://localhost:3000" + "/genre/featured-playlists"
+      process.env.REACT_APP_CLIENT_URL + "/genre/featured-playlists"
     ) {
       return <FeaturedPlaylists />;
     } else {

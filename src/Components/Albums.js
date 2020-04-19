@@ -8,7 +8,9 @@ const Albums = () => {
       <h6 id="album2">
         Save albums you love to build the collection of your dreams.
       </h6>
-      <button id="discover-icon">DISCOVER</button>
+      <a href="/browse/discover" id="discover-icon">
+        DISCOVER
+      </a>
     </div>
   );
 };

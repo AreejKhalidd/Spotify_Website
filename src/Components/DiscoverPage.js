@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./DiscoverPage.css";
 import DiscoverCardList from "./DiscoverCardList";
-// import { ContextMenu, MenuItem, ContextMenuTrigger } from "react-contextmenu";
 
 class DiscoverPage extends Component {
   constructor() {

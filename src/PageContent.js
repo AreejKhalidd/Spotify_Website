@@ -5,7 +5,7 @@ import Library from "./Components/Library";
 import Podcasts from "./Components/Podcasts";
 import Artists from "./Components/Artists";
 import Albums from "./Components/Albums";
-import LikedSongs from "./Components/LikedSongs";
+import LikedSongsPage from "./Components/LikedSongsPage";
 import Login from "./Components/Login";
 import Loginform from "./Components/loginForm";
 import Sidebar from "./Components/Sidebar";
@@ -74,9 +74,9 @@ class PageContent extends Component {
       return <Albums />;
     else if (
       window.location.href ===
-      "http://localhost:3000" + "/collection/tracks"
+      process.env.REACT_APP_CLIENT_URL + "/collection/tracks"
     )
-      return <LikedSongs />;
+      return <LikedSongsPage />;
     else if (
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/account"

@@ -98,7 +98,6 @@ componentDidMount(){
       
  
   const aa= process.env.REACT_APP_URL + "/users/signUp";
-  console.log(process.env)
   console.log(aa) //for debugging =abm
 
   //let data=this.state.datatosend;
@@ -120,13 +119,16 @@ componentDidMount(){
     },
     body:JSON.stringify(data)
   }).then((result) => {
- result.json().then((respp) =>{
-console.warn("respp".respp)
-this.setState({ errormsg: "you are signed up successfully! please go and login " ,
-loaded:true,
-});  
- })
-  })
+      console.log(result.status) 
+      console.log(result)
+      result.json().then((respp) => {
+        
+        console.warn("respp".respp)
+        this.setState({ errormsg: "you are signed up successfully! please go and login " ,
+        loaded:true,
+        });  
+      })
+    })
 
 }
 if(this.state.loaded===false){

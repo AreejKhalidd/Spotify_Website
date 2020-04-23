@@ -118,12 +118,17 @@ componentDidMount(){
       'Accept':'application/json',
     },
     body:JSON.stringify(data)
-  }).then((result) => {
-      console.log(result.status) 
-      console.log(result)
-      result.json().then((respp) => {
-        
-        console.warn("respp".respp)
+    //changed variables names to be more related to the data it stores , by michael
+  }).then((response) => {
+      console.log(response.status) 
+      console.log(response)
+      response.json().then((body) => {
+        if(response.status == 400) {
+          this.setState({ errormsg: "You already have an account, please go and login " ,
+          loaded:false,
+          });  
+        }
+        else if(response.status == 201)
         this.setState({ errormsg: "you are signed up successfully! please go and login " ,
         loaded:true,
         });  

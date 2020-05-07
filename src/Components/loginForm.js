@@ -23,23 +23,7 @@ class Loginform extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-/*
-  componentDidMount(){
-    let url= process.env.URL + "/users/login";
-    fetch(url,{
-      method:'GET',
-      headers:{
-        'Accept':'application/json',
-        'Content-TYpe':'application/json',
-      }
-    }).then((result)=> {
-     result.json().then((resp) =>{
 
-this.setState({user:resp})
-     })
-    })
-  } 
-  */
   onChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
@@ -94,19 +78,19 @@ this.setState({user:resp})
       })
       .then((response)=> {
           response.json().then((body) =>{
+            console.log(body)
+            console.log(response.status)
 
-          console.log(body)
-          console.log(response.status)
-
-          if(response.status == 400) {
-            this.setState({loggingError:"Incorrect user or password",loggedIn:false});
-          }
-          else {
-            this.setState({loggedIn: true});
-            var h =body.token;
-            localStorage.setItem('tokenfromlogin',h)
-          }
-        })
+            if(response.status == 400) {
+              this.setState({loggingError:"Incorrect user or password",loggedIn:false});
+            }
+            else {
+              this.setState({loggedIn: true});
+              var h =body.token;
+              
+              localStorage.setItem('tokenfromlogin',h)
+            }
+         })
       })
     }
   };

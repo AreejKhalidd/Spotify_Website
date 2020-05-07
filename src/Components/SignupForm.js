@@ -40,47 +40,10 @@ class SignupForm extends React.Component {
       },
       loaded:false, 
       data:true,
-        errormsg: ""
-      
-
-       
-
+      errormsg: ""
     };
   }
 
-/*
-  componentDidMount(){
-    let link= process.env.URL +"/users/signUp";
-    console.log(process.env.URL)
-    fetch(link,{
-      method:'GET',
-      headers:{
-        'Accept':'application/json',
-        'Content-TYpe':'application/json',
-      }
-    }).then((result)=> {
-     result.json().then((resp) =>{
-
-this.setState({data:resp})
-     })
-    })
-  }  
-    
-
-componentDidMount(){
-  fetch('http://192.168.1.3:8080/users.json')
-  .then(response => {
-  response.json();
-   })
-  .then(users => {
-    this.setState({
-      user:users,
-   loaded:true})
-
-  });
-  
-}
-*/
   onsubmit = e => {
     e.preventDefault();
     if (

@@ -39,7 +39,9 @@ class Navbar extends React.Component {
     if (
       window.location.href === "http://localhost:3000/collection/tracks" ||
       window.location.href === "http://localhost:3000/browse/discover" ||
-      window.location.href === "http://localhost:3000/genre/featured-playlists"
+      window.location.href ===
+        "http://localhost:3000/genre/featured-playlists" ||
+      window.location.href === "http://localhost:3000/1"
     ) {
       return <LikedTracksNavbar />;
     }

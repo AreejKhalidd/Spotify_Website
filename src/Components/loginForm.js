@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./login.css";
 import "./page.js";
+//import { response } from "express";
 
 class Loginform extends Component {
   constructor(props) {
@@ -22,23 +23,7 @@ class Loginform extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-/*
-  componentDidMount(){
-    let url= process.env.URL + "/users/login";
-    fetch(url,{
-      method:'GET',
-      headers:{
-        'Accept':'application/json',
-        'Content-TYpe':'application/json',
-      }
-    }).then((result)=> {
-     result.json().then((resp) =>{
 
-this.setState({user:resp})
-     })
-    })
-  } 
-  */
   onChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
@@ -70,44 +55,44 @@ this.setState({user:resp})
 
 
   onSubmit = e => {
-
     this.setState({ nameError: "", passwordError: "" });
     e.preventDefault();
 
     if (this.isValid()) {
       //-------------------------------------------------------
-        const url=process.env.REACT_APP_URL + "/users/login";
+      let url=process.env.REACT_APP_URL + "/users/login";
 
-        let data=(this.state.user)
-        console.log(this.state.user)
+      let data ={
+        'email':  this.state.identifier,
+        'password': this.state.password,
+      }
 
-        fetch(url, {mode: 'cors'},{
+      console.log(data)
+      fetch(url,{
         method:'POST',
         headers:{
-        'Accept':'application/json',
-        'Content-TYpe':'application/json',
-      },
-      body:JSON.stringify(data)
-    }).then((resultss)=> {
-     resultss.json().then((resp) =>{
-    console.warn(resp)
-    var h =resp.token;
-   
-    localStorage.setItem('tokenfromlogin',h)
-    this.setState({
-      loggedIn: true
-    });
-        
-     })
-    })
-  
-      }
-      if(this.state.loggedIn===false) {
-       { 
-         this.setState({loggingError:"Incorrect user or password"})
-         }
+          'Accept':'application/json',
+          'Content-Type':'application/json',
+        },
+        body:JSON.stringify(data)
+      })
+      .then((response)=> {
+          response.json().then((body) =>{
+            console.log(body)
+            console.log(response.status)
+
+            if(response.status == 400) {
+              this.setState({loggingError:"Incorrect user or password",loggedIn:false});
+            }
+            else {
+              this.setState({loggedIn: true});
+              var h =body.token;
+              
+              localStorage.setItem('tokenfromlogin',h)
+            }
+         })
+      })
     }
-  
   };
   render() {
     const { identifier, password, isLoading,loaded } = this.state;
@@ -131,13 +116,14 @@ this.setState({user:resp})
           CONTINUE WITH FACEBOOK
         </button>
         <h3>OR</h3>
-        <input
+        <input  
           name="identifier"
           field="identifier"
           value={identifier}
           className="center"
           type="text"
           placeholder="Enter Username or Email "
+         
           onChange={this.onChange}
         />
         <div className="error">{this.state.nameError}</div> <br />

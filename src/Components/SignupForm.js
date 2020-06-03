@@ -40,47 +40,10 @@ class SignupForm extends React.Component {
       },
       loaded:false, 
       data:true,
-        errormsg: ""
-      
-
-       
-
+      errormsg: ""
     };
   }
 
-/*
-  componentDidMount(){
-    let link= process.env.URL +"/users/signUp";
-    console.log(process.env.URL)
-    fetch(link,{
-      method:'GET',
-      headers:{
-        'Accept':'application/json',
-        'Content-TYpe':'application/json',
-      }
-    }).then((result)=> {
-     result.json().then((resp) =>{
-
-this.setState({data:resp})
-     })
-    })
-  }  
-    
-
-componentDidMount(){
-  fetch('http://192.168.1.3:8080/users.json')
-  .then(response => {
-  response.json();
-   })
-  .then(users => {
-    this.setState({
-      user:users,
-   loaded:true})
-
-  });
-  
-}
-*/
   onsubmit = e => {
     e.preventDefault();
     if (
@@ -98,7 +61,6 @@ componentDidMount(){
       
  
   const aa= process.env.REACT_APP_URL + "/users/signUp";
-  console.log(process.env)
   console.log(aa) //for debugging =abm
 
   //let data=this.state.datatosend;
@@ -119,14 +81,22 @@ componentDidMount(){
       'Accept':'application/json',
     },
     body:JSON.stringify(data)
-  }).then((result) => {
- result.json().then((respp) =>{
-console.warn("respp".respp)
-this.setState({ errormsg: "you are signed up successfully! please go and login " ,
-loaded:true,
-});  
- })
-  })
+    //changed variables names to be more related to the data it stores , by michael
+  }).then((response) => {
+      console.log(response.status) 
+      console.log(response)
+      response.json().then((body) => {
+        if(response.status == 400) {
+          this.setState({ errormsg: "You already have an account, please go and login " ,
+          loaded:false,
+          });  
+        }
+        else if(response.status == 201)
+        this.setState({ errormsg: "you are signed up successfully! please go and login " ,
+        loaded:true,
+        });  
+      })
+    })
 
 }
 if(this.state.loaded===false){

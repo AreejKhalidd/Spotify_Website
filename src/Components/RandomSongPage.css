@@ -1,0 +1,87 @@
+.RandomSong-page {
+  background-image: linear-gradient(rgb(51, 13, 13) 0%, black 60%);
+  height: 800px;
+  padding-top: 100px;
+}
+
+.label {
+  color: white;
+  font-size: 28px;
+  padding-top: 30px;
+  padding-right: 120px;
+}
+
+.plyBtn {
+  background-color: #1db954;
+  color: white;
+  border: #1db954;
+  margin-top: 30px;
+  margin-left: 80px;
+  width: 120px;
+  height: 40px;
+}
+
+.plyBtn:hover {
+  background-color: #39e776;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.container .imageBtn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  opacity: 0;
+  font-size: 72px;
+  width: 0px;
+}
+.container .imageBtn .far {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 72px;
+}
+
+.container .imageBtn:hover {
+  background-color: transparent;
+  color: white;
+}
+.container .imageBtn:focus {
+  border: none;
+}
+
+.container:hover .imageBtn {
+  opacity: 1;
+}
+.container:hover img {
+  opacity: 0.2;
+}

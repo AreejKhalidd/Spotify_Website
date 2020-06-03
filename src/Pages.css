@@ -25,30 +25,30 @@
   background-color: inherit;
 }
 .podcasts-page #podcast {
-  color: moccasin;
+  color: rgb(255, 255, 255);
   padding-top: 120px;
   padding-left: 100px;
 }
 .podcasts-page #podcast1 {
   padding-top: 100px;
   padding-left: 120px;
-  color: moccasin;
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }
 .podcasts-page #podcast2 {
   padding-top: 30px;
   padding-left: 120px;
-  color: moccasin;
+  color: rgb(255, 255, 255);
 }
 
 #podcast-icon {
-  background-color: moccasin;
+  background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   font-family: Raleway-SemiBold;
   letter-spacing: 1px;
   line-height: 30px;
   border-radius: 40px;
-  border: 2px solid moccasin;
+  border: 2px solid rgb(255, 255, 255);
   padding-top: 5px;
   padding-left: 30px;
   padding-right: 30px;
@@ -60,55 +60,8 @@
 }
 
 #podcast-icon:hover {
-  background-color: moccasin;
+  background-color: rgb(255, 255, 255);
   border: moccasin;
-  color: black;
-  text-decoration: none;
-}
-
-/************* PLAYLISTS PAGE *************/
-.playlists-page {
-  text-align: center;
-  background-color: inherit;
-}
-.playlists-page #playlists {
-  color: white;
-  padding-top: 120px;
-  padding-left: 100px;
-}
-.playlists-page #playlists1 {
-  padding-top: 90px;
-  padding-left: 120px;
-  color: white;
-  font-weight: bold;
-}
-.playlists-page #playlists2 {
-  padding-top: 30px;
-  padding-left: 120px;
-  color: white;
-}
-
-#playlists-icon {
-  background-color: white;
-  color: rgb(0, 0, 0);
-  font-family: Raleway-SemiBold;
-  letter-spacing: 1px;
-  line-height: 30px;
-  border-radius: 40px;
-  border: 2px solid white;
-  padding-top: 5px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 5px;
-  font-size: 14px;
-  font-weight: 900;
-  margin-top: 30px;
-  margin-left: 120px;
-}
-
-#playlists-icon:hover {
-  background-color: white;
-  border: white;
   color: black;
   text-decoration: none;
 }
@@ -138,16 +91,6 @@
 #prod-icon:hover {
   text-decoration: none;
 }
-.artists-page {
-  background-color: inherit;
-  text-align: center;
-  background-color: inherit;
-}
-
-.welcome {
-  padding-top: 100px;
-  color: violet;
-}
 
 /**************  ALBUMS PAGE *************/
 .albums-page {
@@ -155,42 +98,44 @@
   background-color: inherit;
 }
 .albums-page #album {
-  color: burlywood;
+  color: rgb(255, 255, 255);
   padding-top: 100px;
   padding-left: 100px;
 }
 .albums-page #album1 {
   padding-top: 100px;
   padding-left: 120px;
-  color: burlywood;
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }
 .albums-page #album2 {
   padding-top: 30px;
   padding-left: 120px;
-  color: burlywood;
+  padding-bottom: 30px;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
 }
 
 #discover-icon {
-  background-color: burlywood;
+  background-color: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   font-family: Raleway-SemiBold;
   letter-spacing: 1px;
   line-height: 30px;
   border-radius: 40px;
-  border: 2px solid burlywood;
-  padding-top: 5px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 5px;
+  border: 2px solid rgb(255, 255, 255);
+  padding-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
   font-size: 14px;
   font-weight: 900;
-  margin-top: 25px;
+  margin-top: 30px;
   margin-left: 120px;
 }
 
 #discover-icon:hover {
-  background-color: burlywood;
+  background-color: rgb(255, 255, 255);
   border: burlywood;
   color: black;
   text-decoration: none;

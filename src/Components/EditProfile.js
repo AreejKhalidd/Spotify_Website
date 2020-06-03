@@ -47,168 +47,62 @@ class EditProfile extends React.Component {
 
     componentDidMount(){
       const tokenn =localStorage.getItem('tokenfromlogin')
-      let url= process.env.URL + "/me";
+      let url= process.env.REACT_APP_URL + "/me";
       fetch(url,{
         method:'GET',
         headers:{
           'Accept':'application/json',
           'Content-TYpe':'application/json',
-          'Authorization' :'Token'+tokenn
+          'Authorization' :tokenn
         }
-      }).then((result)=> {
-       result.json().then((resp) =>{
-  
-  this.setState({data:resp})
-       })
+      })
+      //changed variables names to be more related to the data it stores , by michael
+      .then((response)=> {
+        response.json().then((body) =>{
+          this.setState({data:body.user})
+        })
       })
     } 
+
     
-   saveEdit =e =>{  
-    //e.preventDefault();     
-    if(this.state.passwordd===this.state.data.password){
-               if(this.state.changeemail===true){
-                   if( this.state.newemail !== this.state.data.email) {
-                    const tokenn =localStorage.getItem('tokenfromlogin' )                   
-                     let ur5l=process.env.URL + "/users/me";
-                     let data={
-                      'email' :this.state.newemail,
-                      
-                     }
-                     fetch(ur5l,{
-                       method:'PATCH',
-                       headers:{
-                         'Content-Type':'application/json',
-                         'Accept':'application/json',
-                         'Authorization' :'Token'+tokenn
-                       },
-                       body:JSON.stringify(data)
-                     }).then((result) => {
-                    result.json().then((respp) =>{
-                   console.warn("respp".respp)
-                     this.setState({msg:"Email is changed!"});
-                    })
-                     })
-                    
-                    this.setState({msg:"Email is changed!"});
-                   }
-                   else{
-                    this.setState({msg:"Email is already taken!"});
-                   }
-                  }
- /*
-           if(this.state.changephonenumber===true){
-    ///axious.post('http://192.168.1.3:8080/users.json',this.statenewphonenumber)
-   
-    this.setState({msg:"your phone number is changed!"});
-           }
-           if(this.state.changeusername===true){
-            ///
-            let url="	http://dummy.restapiexample.com/api/v1/create";
-            let data=this.state.newdisplay_name;
-            fetch(url,{
-              method:'POST',
-              headers:{
-                'Content-Type':'application/json',
-                'Accept':'application/json',
-              },
-              body:JSON.stringify(data)
-            }).then((result) => {
-           result.json().then((respp) =>{
-          console.warn("respp".respp)
-           })
-            })
-          }
-*/
-if(this.state.changeusername===true){
-if( this.state.newdisplay_name!== this.state.data.display_name) {
-  const tokenn =localStorage.getItem('tokenfromlogin')
-                 
-  let url55=process.env.URL +"/users/me";
-  let data={
-    'display_name':this.state.newdisplay_name,
-    
-  }
-  fetch(url55,{
-    method:'PATCH',
-    headers:{
-      'Content-Type':'application/json',
-      'Accept':'application/json',
-      'Authorization' :'Token'+tokenn  
-    },
-    body:JSON.stringify(data)
-  }).then((result) => {
- result.json().then((respp) =>{
-console.warn("respp".respp)
-  this.setState({msg:"UserName is changed!"});
-  console.log(this.state.data.email)
- })
-  })
-}
-else{this.setState({msg:"UserName is already taken!"}) }
-}           
-   if(this.state.changeage===true){
-    const tokenn =localStorage.getItem('tokenfromlogin')
-    
-    let url557=process.env.URL + "/users/me";
-    let data={
-              'age':this.state.newage,
-              
-    }
-    fetch(url557,{
-      method:'PATCH',
-      headers:{
-        'Content-Type':'application/json',
-        'Accept':'application/json',
-        'Authorization' :'Token'+tokenn
-      },
-      body:JSON.stringify(data)
-    }).then((result) => {
-   result.json().then((respp) =>{
-  console.warn("respp".respp)
-    this.setState({msg:"Age is changed!"});
-   })
-    })
-   }
-   ////////
-   if(this.state.changeusername===true || this.state.changeemail===true || this.state.changeage===true){
-    if( this.state.newemail !== this.state.data.email) {
-      const tokenn =localStorage.getItem('tokenfromlogin')
-      let ura= process.env.URL + "/users/me";
-      let data={
-            'email' :this.state.newemail || this.data.email,
-'display_name':this.state.newdisplay_name || this.data.display_name,
-'age':this.state.newage || this.state.data.age,
+    saveEdit =e =>{  
+      //e.preventDefault();    
+      const tokenn =localStorage.getItem('tokenfromlogin') 
+      let data = {}
+      
+      if(this.state.changeemail===true){
+        data.email = this.state.newemail
       }
-      fetch(ura,{
-        method:'PATCH',
-        headers:{
-          'Content-Type':'application/json',
-          'Accept':'application/json',
-          'Authorization' :'Token'+tokenn
+      if(this.state.changeusername===true){
+        data.display_name = this.state.newdisplay_name
+      }
+      
+      console.log(data);
+
+
+      const endPoint = process.env.REACT_APP_URL + "/users/me"
+      fetch (endPoint, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          'accept': 'application/json',
+          'Authorization': tokenn
         },
-        body:JSON.stringify(data)
-      }).then((result) => {
-     result.json().then((respp) =>{
-    console.warn("respp".respp)
-      this.setState({msg:"your details is changed!"});
-     })
+        body: JSON.stringify(data)
+      })
+      .then((response) => {
+        response.json().then((body) => {
+          console.log(response.status)
+          console.log(body)
+
+          this.setState({msg : "updated"})
+        })
       })
     }
-    else{
-     this.setState({msg:"try again!!"});
-    }
-   }
 
 
-
-   //
-
-        }
-        else{
-          this.setState({msg:"the password is not correct"});
-        }
-      }
     
+   
     onChangeemail = e => {
       this.setState({
         newemail: e.target.value
@@ -302,12 +196,12 @@ else{this.setState({msg:"UserName is already taken!"}) }
     }
 
 
-    
+  
   
 
     render() {
       const data=this.state.data;
-      console.warn(data);
+      //console.log(data);
 
         var name =this.state.data.display_name || "";
         var e = this.state.data.email || "";
@@ -417,3 +311,150 @@ else{this.setState({msg:"UserName is already taken!"}) }
 export default EditProfile;
 //  //#1db954;
 
+/**
+ * saveEdit =e =>{  
+    //e.preventDefault();     
+    if(this.state.passwordd===this.state.data.password){
+               if(this.state.changeemail===true){
+                   if( this.state.newemail !== this.state.data.email) {
+                       const tokenn =localStorage.getItem('tokenfromlogin' )                   
+                       let ur5l=process.env.URL + "/users/me";
+                       let data={
+                          'email' :this.state.newemail,  
+                       }
+                     fetch(ur5l,{
+                       method:'PATCH',
+                       headers:{
+                         'Content-Type':'application/json',
+                         'Accept':'application/json',
+                         'Authorization': tokenn
+                       },
+                       body:JSON.stringify(data)
+                     })
+                     .then((result) => {
+                     result.json().then((respp) =>{
+
+                     console.warn("respp".respp)
+                     this.setState({msg:"Email is changed!"});
+                    })
+                     })
+                    
+                    this.setState({msg:"Email is changed!"});
+                   }
+                   else{
+                    this.setState({msg:"Email is already taken!"});
+                   }
+                  }
+ 
+           if(this.state.changephonenumber===true){
+    ///axious.post('http://192.168.1.3:8080/users.json',this.statenewphonenumber)
+   
+    this.setState({msg:"your phone number is changed!"});
+           }
+           if(this.state.changeusername===true){
+            ///
+            let url="	http://dummy.restapiexample.com/api/v1/create";
+            let data=this.state.newdisplay_name;
+            fetch(url,{
+              method:'POST',
+              headers:{
+                'Content-Type':'application/json',
+                'Accept':'application/json',
+              },
+              body:JSON.stringify(data)
+            }).then((result) => {
+           result.json().then((respp) =>{
+          console.warn("respp".respp)
+           })
+            })
+          }
+
+if(this.state.changeusername===true){
+  if( this.state.newdisplay_name!== this.state.data.display_name) {
+    const tokenn =localStorage.getItem('tokenfromlogin')
+                   
+    let url55=process.env.URL +"/users/me";
+    let data={
+      'display_name':this.state.newdisplay_name,
+      
+    }
+    fetch(url55,{
+      method:'PATCH',
+      headers:{
+        'Content-Type':'application/json',
+        'Accept':'application/json',
+        'Authorization' :tokenn  
+      },
+      body:JSON.stringify(data)
+    }).then((result) => {
+   result.json().then((respp) =>{
+  console.warn("respp".respp)
+    this.setState({msg:"UserName is changed!"});
+    console.log(this.state.data.email)
+   })
+    })
+  }
+  else{this.setState({msg:"UserName is already taken!"}) }
+  }           
+     if(this.state.changeage===true){
+      const tokenn =localStorage.getItem('tokenfromlogin')
+      
+      let url557=process.env.URL + "/users/me";
+      let data={
+                'age':this.state.newage,
+                
+      }
+      fetch(url557,{
+        method:'PATCH',
+        headers:{
+          'Content-Type':'application/json',
+          'Accept':'application/json',
+          'Authorization' :tokenn
+        },
+        body:JSON.stringify(data)
+      }).then((result) => {
+     result.json().then((respp) =>{
+    console.warn("respp".respp)
+      this.setState({msg:"Age is changed!"});
+     })
+      })
+     }
+     ////////
+     if(this.state.changeusername===true || this.state.changeemail===true || this.state.changeage===true){
+      if( this.state.newemail !== this.state.data.email) {
+        const tokenn =localStorage.getItem('tokenfromlogin')
+        let ura= process.env.URL + "/users/me";
+        let data={
+              'email' :this.state.newemail || this.data.email,
+  'display_name':this.state.newdisplay_name || this.data.display_name,
+  'age':this.state.newage || this.state.data.age,
+        }
+        fetch(ura,{
+          method:'PATCH',
+          headers:{
+            'Content-Type':'application/json',
+            'Accept':'application/json',
+            'Authorization' :'Token'+tokenn
+          },
+          body:JSON.stringify(data)
+        }).then((result) => {
+       result.json().then((respp) =>{
+      console.warn("respp".respp)
+        this.setState({msg:"your details is changed!"});
+       })
+        })
+      }
+      else{
+       this.setState({msg:"try again!!"});
+      }
+     }
+  
+  
+
+          }
+          else{
+            this.setState({msg:"the password is not correct"});
+          }
+        }
+      
+ */

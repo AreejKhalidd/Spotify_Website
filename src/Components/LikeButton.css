@@ -1,0 +1,26 @@
+button .fa-heart {
+  font-size: 20px;
+}
+.heartBtn {
+  background-color: transparent;
+  color: white;
+  border-color: transparent;
+  width: 40px;
+  height: 40px;
+  margin-left: 120px;
+  text-align: center;
+}
+
+.heartBtn:visited,
+.heartBtn:link {
+  color: #48ce43;
+  background-color: rebeccapurple;
+}
+
+#example {
+  margin: 3rem;
+}
+
+.customContainer {
+  border: 1px solid black;
+}

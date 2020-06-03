@@ -5,7 +5,7 @@ import Library from "./Components/Library";
 import Podcasts from "./Components/Podcasts";
 import Artists from "./Components/Artists";
 import Albums from "./Components/Albums";
-import LikedSongs from "./Components/LikedSongs";
+import LikedSongsPage from "./Components/LikedSongsPage";
 import Login from "./Components/Login";
 import Loginform from "./Components/loginForm";
 import Sidebar from "./Components/Sidebar";
@@ -22,6 +22,7 @@ import Navbar from "./Components/Navbar";
 import ArtistPage from "./Components/ArtistPage";
 import DiscoverPage from "./Components/DiscoverPage";
 import FeaturedPlaylists from "./Components/FeaturedPlaylists";
+import RandomSongPage from "./Components/RandomSongPage";
 
 class PageContent extends Component {
   render() {
@@ -76,7 +77,7 @@ class PageContent extends Component {
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/collection/tracks"
     )
-      return <LikedSongs />;
+      return <LikedSongsPage />;
     else if (
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/account"
@@ -238,6 +239,11 @@ class PageContent extends Component {
       process.env.REACT_APP_CLIENT_URL + "/genre/featured-playlists"
     ) {
       return <FeaturedPlaylists />;
+    } else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/1"
+    ) {
+      return <RandomSongPage />;
     } else {
       return <Error />;
     }

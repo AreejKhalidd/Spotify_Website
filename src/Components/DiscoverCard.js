@@ -10,9 +10,9 @@ const DiscoverCard = ({ img, header, description, link }) => {
         </h3>
         <h3 className="albumName">{header}</h3>
         <p className="albumDescription">{description}</p>
-        {/* <button className="playButton">
+        <button className="playButton">
           <i class="fa">&#xf04b;</i>
-        </button> */}
+        </button>
       </a>
     </div>
   );

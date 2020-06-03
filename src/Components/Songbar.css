@@ -1,0 +1,186 @@
+.SongbarShape{
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    height: 90px;
+    padding: 0 16px;
+}
+
+.SongImage{
+    background-image: url("https://i.scdn.co/image/ab67616d00004851d352e68d3f9ef21f6d167a96");
+    position: absolute; 
+    top:15px;
+    left:20px;
+    height: 56px;
+    width: 56px;
+    background-color: #000;
+}
+
+#EnlargeImage{
+    position: absolute; 
+    top:15px;
+    left:55px;
+    font-size: 18px;
+    color:rgb(19, 18, 18);
+    z-index: 2;
+}
+
+#Like{
+   position: absolute; 
+   top:35px;
+   left:180px;
+   font-size: 16px;
+   color:rgb(179, 179, 179);
+}
+
+.SongName{
+   position: absolute; 
+   top:22px;
+   left:93px;
+   font-size: 15px;
+   color:rgb(179, 179, 179);
+}
+
+.ArtistName{
+   position: absolute; 
+   top:45px;
+   left:93px;
+   font-size: 12px;
+   color:rgb(179, 179, 179);
+
+}
+
+#Play{
+   position: absolute; 
+   top:10px;
+   left:900px;
+   font-size: 32px;
+   font-weight: 100;
+   color:rgb(179, 179, 179);
+      
+}
+
+#Play:hover{
+    font-size: 36px;
+    color: white;
+}
+
+
+
+#Next{
+    position: absolute; 
+    top:19px;
+    left:953px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+}
+
+#Previous{
+    position: absolute; 
+    top:19px;
+    left:863px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+}
+
+#Repeat{
+    position: absolute; 
+    top:19px;
+    left:999px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+}
+
+#Shuffle{
+    position: absolute; 
+    top:19px;
+    left:813px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+}
+
+#Progress{
+    position: absolute; 
+    top:65px;
+    left:570px;
+    background-color: #535353;
+    border-radius: 2px;
+    display: flex;
+    width: 700px;
+    height: 4px;
+}
+
+.ProgressTimeRemaining{
+    position: absolute; 
+    top:59px;
+    left:530px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: .015em;
+    min-width: 40px;
+    text-align: center;
+}
+
+.ProgressTimeTillEnd{
+    position: absolute; 
+    top:59px;
+    left:1270px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: .015em;
+    min-width: 40px;
+    text-align: center;
+
+}
+
+#Queue{
+    position: absolute; 
+    top:19px;
+    left:1650px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+}
+
+#Connect{
+    position: absolute; 
+    top:19px;
+    left:1680px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+    
+
+}
+
+#Device{
+    position: absolute; 
+    top:19px;
+    left:1700px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+}
+
+#Volume{
+    position: absolute; 
+    top:19px;
+    left:1723px;
+    font-size: 16px;
+    color:rgb(179, 179, 179);
+}
+
+#Volumebar{
+    position: absolute; 
+    top:25px;
+    left:1745px;
+    background-color: #535353;
+    border-radius: 2px;
+    display: flex;
+    width: 90px;
+    height: 4px;
+
+}
+

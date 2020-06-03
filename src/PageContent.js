@@ -74,7 +74,7 @@ class PageContent extends Component {
       return <Albums />;
     else if (
       window.location.href ===
-      "http://localhost:3000" + "/collection/tracks"
+      process.env.REACT_APP_CLIENT_URL + "/collection/tracks"
     )
       return <LikedSongs />;
     else if (

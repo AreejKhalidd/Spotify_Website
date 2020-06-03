@@ -1,10 +1,10 @@
 import React from "react";
-import LikedSong from "./LikedSong";
+import RandomSong from "./RandomSong";
 
-const LikedSongList = ({ Songs }) => {
+const RandomSongList = ({ Songs }) => {
   const cardComponents = Songs.map((user) => {
     return (
-      <LikedSong
+      <RandomSong
         key={user.id}
         songName={user.songName}
         duration={user.duration}
@@ -18,4 +18,4 @@ const LikedSongList = ({ Songs }) => {
   return <div>{cardComponents}</div>;
 };
 
-export default LikedSongList;
+export default RandomSongList;

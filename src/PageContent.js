@@ -22,6 +22,7 @@ import Navbar from "./Components/Navbar";
 import ArtistPage from "./Components/ArtistPage";
 import DiscoverPage from "./Components/DiscoverPage";
 import FeaturedPlaylists from "./Components/FeaturedPlaylists";
+import RandomSongPage from "./Components/RandomSongPage";
 
 class PageContent extends Component {
   render() {
@@ -238,6 +239,11 @@ class PageContent extends Component {
       process.env.REACT_APP_CLIENT_URL + "/genre/featured-playlists"
     ) {
       return <FeaturedPlaylists />;
+    } else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/1"
+    ) {
+      return <RandomSongPage />;
     } else {
       return <Error />;
     }

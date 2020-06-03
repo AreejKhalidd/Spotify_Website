@@ -1,0 +1,48 @@
+/************* PLAYLISTS PAGE *************/
+.playlists-page {
+  text-align: center;
+  background-color: inherit;
+  padding-top: 80px;
+}
+.playlists-page #playlists {
+  color: white;
+  padding-top: 30px;
+  padding-left: 100px;
+}
+.playlists-page #playlists1 {
+  padding-top: 40px;
+  padding-left: 120px;
+  color: white;
+  font-weight: bold;
+}
+.playlists-page #playlists2 {
+  padding-top: 30px;
+  padding-left: 120px;
+  color: white;
+  padding-bottom: 40px;
+}
+
+.playlists-page #playlists-icon {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  letter-spacing: 1px;
+  line-height: 30px;
+  border-radius: 40px;
+  border: 2px solid white;
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: 120px;
+}
+
+#playlists-icon:hover {
+  background-color: white;
+  border: white;
+  color: black;
+  text-decoration: none;
+  font-size: 120%;
+}

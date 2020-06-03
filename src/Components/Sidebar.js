@@ -16,13 +16,13 @@ class Sidebar extends React.Component {
             />
           </a>
           <a href="/" id="home-icon" className="fas fa-home">
-            Home
+            &nbsp;&nbsp;Home
           </a>
           <a href="/" id="search-icon" className="fas fa-search">
-            Search
+            &nbsp;&nbsp;Search
           </a>
           <a href="/" id="lib-icon" className="fas">
-            &#xf025; Your Library
+            &#xf025;&nbsp;&nbsp;Your Library
           </a>
         </div>
       );
@@ -39,13 +39,13 @@ class Sidebar extends React.Component {
           />
         </a>
         <a href="/Home" id="home-icon" className="fas fa-home">
-          Home
+          &nbsp;&nbsp;Home
         </a>
         <a href="/search" id="search-icon" className="fas fa-search">
-          Search
+          &nbsp;&nbsp;Search
         </a>
         <a href="/collection/playlists" id="lib-icon" className="fas">
-          &#xf025; Your Library
+          &#xf025;&nbsp;&nbsp;Your Library
         </a>
         <h6 className="text">PLAYLISTS</h6>
         <a
@@ -55,10 +55,10 @@ class Sidebar extends React.Component {
           data-toggle="modal"
           data-target="#myModal"
         >
-          Create Playlist
+          &nbsp;&nbsp;Create Playlist
         </a>
         <a href="/collection/tracks" id="liked-icon" className="fas fa-heart">
-          Liked Songs
+          &nbsp;&nbsp;Liked Songs
         </a>
         <div className="createPlaylist-page">
           <div className="modal fade" id="myModal" role="dialog">

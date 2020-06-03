@@ -1,7 +1,7 @@
 import React from "react";
-import "./LikedSong.css";
+import "./RandomSong.css";
 
-const LikedSong = ({
+const RandomSong = ({
   songName,
   duration,
   artistLink,
@@ -27,4 +27,4 @@ const LikedSong = ({
     </div>
   );
 };
-export default LikedSong;
+export default RandomSong;

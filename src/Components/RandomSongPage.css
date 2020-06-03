@@ -1,6 +1,6 @@
-.LikedSongsPage-page {
-  background-image: linear-gradient(rgb(41, 35, 70) 0%, black 60%);
-  height: 2000px;
+.RandomSong-page {
+  background-image: linear-gradient(rgb(51, 13, 13) 0%, black 60%);
+  height: 800px;
   padding-top: 100px;
 }
 

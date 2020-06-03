@@ -3,9 +3,11 @@ import "./Artist.css";
 const Artists = () => {
   return (
     <div className="artists-page">
-      <h1 className="welcome">Welcome to spotify (Artists page)</h1>
-      <a id="artist-button" href="/amr-diab">
-        Amr Diab Page
+      <i className="fa fa-user-plus"></i>
+      <h1 className="welcome">Your artists will appear here.</h1>
+      <p>Follow artists you love to add them to Your library.</p>
+      <a href="/search" className="searchButton">
+        SEARCH
       </a>
     </div>
   );

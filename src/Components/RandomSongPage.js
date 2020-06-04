@@ -3,6 +3,7 @@ import "./RandomSongPage.css";
 import RandomSongList from "./RandomSongList";
 import "./LikeButton.css";
 import axios from "axios";
+import CommentWindow from "./Comment";
 
 class RandomSongPage extends Component {
   constructor() {
@@ -76,9 +77,7 @@ class RandomSongPage extends Component {
   };
 
   render() {
-    const text = this.state.liked ? "liked" : "haven't liked";
-    console.warn("HAHAHAHAHAHAHAH", this.state.check);
-
+    // const text = this.state.liked ? "liked" : "haven't liked";
     return (
       <div className="RandomSong-page">
         <div className="col-xs-12 col-lg-3 col-xl-4">
@@ -101,7 +100,8 @@ class RandomSongPage extends Component {
                 onClick={this.handleClick}
               ></i>
             </button>
-            <p>you {text} this. Click to toggle.</p>
+            {/* <p>you {text} this. Click to toggle.</p> */}
+            {<CommentWindow />}
           </div>
         </div>
         <div className="col-xs-12 col-lg-9 col-xl-8">

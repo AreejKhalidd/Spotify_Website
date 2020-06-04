@@ -15,27 +15,48 @@ class LikedSongsPage extends Component {
       .then((users) => this.setState({ Songs: users }));
   }
   render() {
-    console.warn(this.state.Songs);
-    return (
-      <div className="LikedSongsPage-page">
-        <div className="col-xs-12 col-lg-3 col-xl-4">
-          <div class="container">
-            <img
-              src="https://uploads-ssl.webflow.com/5e36e6f21212670638c0d63c/5e39d85cee05be53d238681a_likedSongs.png"
-              alt="like-image"
-            />
-            <button className="imageBtn">
-              <i className="far fa-play-circle"></i>
-            </button>
+    console.warn("HAHAHAHAHAHAHAH", this.state.Songs);
+    if (this.state.Songs.length !== 0) {
+      return (
+        <div className="LikedSongsPage-page">
+          <div className="col-xs-12 col-lg-3 col-xl-4">
+            <div class="container">
+              <img
+                src="https://uploads-ssl.webflow.com/5e36e6f21212670638c0d63c/5e39d85cee05be53d238681a_likedSongs.png"
+                alt="like-image"
+              />
+              <button className="imageBtn">
+                <i className="far fa-play-circle"></i>
+              </button>
+            </div>
+            <h3 className="label">Liked Songs</h3>
+            <button className="plyBtn">Play</button>
           </div>
-          <h3 className="label">Liked Songs</h3>
-          <button className="plyBtn">Play</button>
+          <div className="col-xs-12 col-lg-9 col-xl-8">
+            <LikedSongList Songs={this.state.Songs} />
+          </div>
         </div>
-        <div className="col-xs-12 col-lg-9 col-xl-8">
-          <LikedSongList Songs={this.state.Songs} />
+      );
+    } else {
+      return (
+        <div className="LikedSongsPage-page">
+          <div className="col-xs-12 col-lg-3 col-xl-4">
+            <div class="container"></div>
+            <div
+              style={{
+                color: "white",
+                fontSize: "68px",
+                paddingTop: "120px",
+                paddingLeft: "220px",
+              }}
+            >
+              {" "}
+              NO LIKED SONGS{" "}
+            </div>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 export default LikedSongsPage;

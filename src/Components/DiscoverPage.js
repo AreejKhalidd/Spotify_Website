@@ -30,7 +30,9 @@ class DiscoverPage extends Component {
               </a>
             </div>
           </div>
-          <h1 style={{ color: "white", fontSize: "bold" }}>Loading...</h1>
+          <h1 style={{ color: "white", fontSize: "bold" }}>
+            Loading <i class="fas fa-spinner fa-pulse"></i>
+          </h1>
         </div>
       );
     }

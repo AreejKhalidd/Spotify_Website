@@ -6,7 +6,6 @@ import Navbar from "./Components/Navbar";
 import PageContent from "./PageContent";
 import Songbar from "./Components/Songbar";
 import Prem from "./Prem";
-
 import AcountSideBar from "./Components/AcountSideBar";
 
 import Artists from "./Components/Artists"; // added by michael
@@ -91,6 +90,9 @@ function App() {
               <Route path="/collection/tracks" />
             </Router>
           </div>
+          <div className="Songbarlayout">
+            <Songbar  />
+          </div>
         </div>
 
         <div className="PagesLayout">
@@ -116,9 +118,7 @@ function App() {
           </div>
         </div>
 
-        <div className="Songbarlayout">
-          <Songbar text={"Songbar"} />
-        </div>
+        
       </Router>
     </div>
   );

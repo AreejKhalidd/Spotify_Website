@@ -1,9 +1,12 @@
 .App {
   align-content: center;
+  
 }
 
 .PagesLayout {
   display: grid;
+  height: 119vh;
+  
 }
 
 .FullPage{
@@ -41,7 +44,6 @@
 .Songbarlayout{
   position: fixed;
   margin-top: 90vh;
-  left: 15%;
   grid-column: 1/6;
   grid-row: 10/12;
   width: 100vw;

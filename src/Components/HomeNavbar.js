@@ -17,7 +17,11 @@ class HomeNavbar extends Component {
 };
 }
 
-
+/**
+   * @property {Function} componentDidMount - get picture data form a fake server to the avatar
+   * @param {}
+   * @returns {}
+   */
 
 componentDidMount() {
   let url= "http://localhost:4000/data";

@@ -23,6 +23,7 @@ import ArtistPage from "./Components/ArtistPage";
 import DiscoverPage from "./Components/DiscoverPage";
 import FeaturedPlaylists from "./Components/FeaturedPlaylists";
 import RandomSongPage from "./Components/RandomSongPage";
+import ProfilePicChanger from "./Components/ProfilePicChanger";
 
 class PageContent extends Component {
   render() {
@@ -113,7 +114,27 @@ class PageContent extends Component {
           <Forgot />
         </div>
       );
-    } else if (
+
+      
+    } 
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/ProfilePicChanger"
+    ) {
+      this.props.setShowSideBar(false);
+      return (
+        <div style={{ background: "white", paddingRight: "300px", paddingBottom: "600px",paddingTop: "100px" }}>
+          <Img />
+          <ProfilePicChanger />
+        </div>
+      );
+
+      
+    } 
+
+
+    
+    else if (
       /*     else if (window.location.href === "http://localhost:3000/amer-mounib")
       return <Amer />; */
       window.location.href ===

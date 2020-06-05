@@ -85,6 +85,11 @@ this.setState({user:resp})
   }
 
 //////////////////////////////////
+/**
+   * @property {Function} responseFacebook - Handle Login with Facebook request
+   * @param {}
+   * @returns {}
+   */
    responseFacebook = (response) => {
     console.log(response);
     this.setState({setData:response});

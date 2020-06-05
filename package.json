@@ -39,6 +39,7 @@
     "react-scripts": "^3.4.1",
     "react-scrollbar": "^0.5.6",
     "react-scrollbars-custom": "^4.0.25",
+    "react-share": "^4.1.0",
     "react-switch": "^5.0.1",
     "react-test-render": "^1.1.2",
     "react-toggle-switch": "^3.0.4",

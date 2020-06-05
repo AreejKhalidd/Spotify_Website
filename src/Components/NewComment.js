@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+/**
+ * @property {Class} NewComment that renders user comment with his name and date that comment was posted on
+ * @param {void}
+ * @returns {void}
+ */
 class NewComment extends Component {
   render() {
     return (

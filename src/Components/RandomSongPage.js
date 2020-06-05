@@ -5,6 +5,9 @@ import "./LikeButton.css";
 import axios from "axios";
 import CommentWindow from "./Comment";
 
+/**
+ * Class for a random playlist "first card playlist" in discover page
+ */
 class RandomSongPage extends Component {
   constructor() {
     super();
@@ -17,7 +20,12 @@ class RandomSongPage extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
   }
-
+  /**
+   * fetchind data of libraries from a fake server
+   * @property {Function} componentDidMount
+   * @param {}
+   * @returns {void}
+   */
   componentDidMount() {
     fetch("http://localhost:4000/likedSong")
       .then((response) => response.json())
@@ -43,6 +51,13 @@ class RandomSongPage extends Component {
       .then((data) => this.setState({ cardData: data }));
   }
 
+  /**
+   * POST and DELETE data to fake server if user click on like button
+   * Check to POST or DELETE by butoon color
+   * @property {Function} handleClick
+   * @param {}
+   * @returns {void}
+   */
   handleClick = () => {
     let postURL = "http://localhost:8080/Albums";
 

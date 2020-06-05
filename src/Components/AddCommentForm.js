@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+/**
+ * @property {Class} AddCommentForm that renders input text for user comment
+ * @param {void}
+ * @returns {void}
+ */
 class AddCommentForm extends Component {
   processComment = (event) => {
     event.preventDefault();

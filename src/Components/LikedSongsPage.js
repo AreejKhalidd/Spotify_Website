@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import "./LikedSongsPage.css";
 import LikedSongList from "./LikedSongList";
 
+/**
+ *
+ * @property {class} LikedSongsPage - Liked Songs page that contains List of songs
+ * @param {}
+ * @returns {}
+ */
 class LikedSongsPage extends Component {
   constructor() {
     super();
@@ -9,11 +15,24 @@ class LikedSongsPage extends Component {
       Songs: [],
     };
   }
+
+  /**
+   *
+   * @property {Function} componentDidMount - fetch songs data from a fake server
+   * @param {}
+   * @returns {}
+   */
   componentDidMount() {
     fetch("http://localhost:4000/likedSong")
       .then((response) => response.json())
       .then((users) => this.setState({ Songs: users }));
   }
+
+  /**
+   * @property {Function} render - renders liked songs fetched from a fake server
+   * @param {}
+   * @returns {} div contains all songs fetched from a fake server
+   */
   render() {
     console.warn("HAHAHAHAHAHAHAH", this.state.Songs);
     if (this.state.Songs.length !== 0) {

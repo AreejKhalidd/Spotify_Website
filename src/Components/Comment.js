@@ -3,6 +3,9 @@ import Modal from "react-awesome-modal";
 import CommentForm from "./CommentForm";
 import { Scrollbars } from "react-custom-scrollbars";
 
+/**
+ * @property {Class} CommentWindow that opens comment modal
+ */
 export default class CommentWindow extends Component {
   constructor(props) {
     super(props);
@@ -11,12 +14,23 @@ export default class CommentWindow extends Component {
     };
   }
 
+  /**
+   * @property {Function} openModal that opens modal if user click
+   * @param {void}
+   * @returns {void}
+   */
+
   openModal() {
     this.setState({
       visible: true,
     });
   }
 
+  /**
+   * @property {Function} closeModal that closes modal if user click
+   * @param {void}
+   * @returns {void}
+   */
   closeModal() {
     this.setState({
       visible: false,

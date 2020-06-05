@@ -1,6 +1,12 @@
 import React from "react";
 import "./LikedSong.css";
 
+/**
+ *
+ * @property {Function} LikedSong - Liked Song that contains Song name, duration, artist name, artist link, album link, album name
+ * @param {} library Song name, duration, artist name, artist link, album link, album name
+ * @returns {} div that contains Liked song style
+ */
 const LikedSong = ({
   songName,
   duration,

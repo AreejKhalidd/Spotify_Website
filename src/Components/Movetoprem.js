@@ -206,7 +206,7 @@ moveprem =e =>{
 
          <br></br>
          <br></br>
-            <h1>Move to PREMIUM ?</h1>
+            <h1>Move to PREMIUM ??</h1>
               
             <br></br>
            <label className="labels">Click here to send code to your email</label>

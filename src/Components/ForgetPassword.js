@@ -146,18 +146,21 @@ this.setState({codesend:true});
 
 
 
-/*
-//this function cancel edits by refreshing the page
-*/
+        /**
+    * this function cancel edits by refreshing the page
+    * @function canceledit
+    * @param {event} e - o button click
+    */
 cancelEdit =e =>{
 window.location.reload(false);
 }
 
 
-
- /*
-//rhis function save the written code
-*/  
+      /**
+    * this function save wriiten code by user
+    * @function onChangecode
+    * @param {event} e - on change input
+    */ 
 onChangecode =e =>{
 this.setState({
  code: e.target.value
@@ -165,6 +168,11 @@ this.setState({
 
 }
 
+    /**
+    * this function make user go to login page
+    * @function gologin
+    * @param {event} e - on button click
+    */ 
 gologin =e =>{
   window.location.href = "/";
   }
@@ -273,10 +281,10 @@ this function check if the password is strong enough
           <div className="errormsg">{this.state.msg}</div>
           <div className="forbuttons">
           <button className="button1" onClick={this.cancelEdit }>Cancel</button>
-   <button className="button2" onClick={this.saveEdit }>Save New Password</button>
+   <button className="button2" id="editt" onClick={this.saveEdit }>Save New Password</button>
    <br></br> <br></br> 
    <h6> You can go to login!</h6>
-   <button className="button2" onClick={this.gologin}>Go and login</button>
+   <button className="button3" onClick={this.gologin}>Go and login</button>
    </div>
  </div>        
  );}   

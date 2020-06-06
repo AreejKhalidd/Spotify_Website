@@ -322,6 +322,7 @@ class PageContent extends Component {
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/SearchforSongsArt"
     ) {
+      
       this.props.setShowSideBar(true);
       this.props.setShowAcountSideBar(false);
       return (

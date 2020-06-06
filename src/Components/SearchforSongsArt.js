@@ -7,7 +7,11 @@ import Songbar from './Songbar';
 import LikedSong from "./LikedSong";
 import SearchedSong from "./SearchedSong"
 
-const songs=[ //there are always function that fetch songs from server 
+
+   /*
+here  are only i use constant data to be always appear but i make mocking also and here down are the mocking functions
+    */
+const songs=[ //there are always function that fetch songs from server and i test with it
   {
       id:1,
       name:"Osad Einy",
@@ -46,7 +50,7 @@ here  are only i use constant data to be always appear but i make mocking also a
       /**
     * this functionhelp in filtering the songs andartists by wriiten input
     * @function searching
-    * @param {event} e - onChange event
+    * @param stringg of user input to search by
     */
   
 function searching(searchby){

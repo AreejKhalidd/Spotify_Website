@@ -164,6 +164,12 @@ this.setState({
 });
 
 }
+
+gologin =e =>{
+  window.location.href = "/";
+  }
+
+
  /*
 //his function take the code that user entered it and check it with fake server that it's the same code that server sent it to him torugh the email
 */ 
@@ -264,17 +270,13 @@ this function check if the password is strong enough
           />
           <div className="errormsg">{this.state.newpassError}</div>
           <br></br>
-
-
-
-
-
-
-
           <div className="errormsg">{this.state.msg}</div>
           <div className="forbuttons">
           <button className="button1" onClick={this.cancelEdit }>Cancel</button>
    <button className="button2" onClick={this.saveEdit }>Save New Password</button>
+   <br></br> <br></br> 
+   <h6> You can go to login!</h6>
+   <button className="button2" onClick={this.gologin}>Go and login</button>
    </div>
  </div>        
  );}   

@@ -1,0 +1,58 @@
+.playlist {
+    list-style: none;
+    cursor: pointer;
+  }
+  
+  .playlist li {
+    padding: 20px;
+    color: white;
+    background-color: inherit;
+  }
+  
+  .playlist li:hover {
+    background-color: rgba(145, 143, 143, 0.1);
+  }
+  
+  .music {
+    float: left;
+    color: darkgray;
+    opacity: 1;
+  }
+  
+  .play {
+    float: left;
+    color: rgb(255, 255, 255);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  
+  .playlist li:hover .play {
+    opacity: 1;
+  }
+  
+  .playlist li:hover .music {
+    opacity: 0;
+  }
+  
+  .duration {
+    float: right;
+    color: darkgray;
+  }
+  
+  .playlist li i a {
+    float: left;
+    font-size: 12px;
+    color: darkgray;
+  }
+  
+  .playlist li i a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .playlist li span {
+    float: left;
+    padding-left: 20px;
+    font-size: 14px;
+  }
+  

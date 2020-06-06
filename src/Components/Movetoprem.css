@@ -1,0 +1,119 @@
+.Movetoprem{
+    text-align: center;
+    
+  
+  }
+  .labels{
+  color: black;
+  }
+  
+  .forminput {
+    width:200px;
+    height: 20px;
+
+    border-radius: 30px;
+    margin-bottom: 1px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .button1{
+    color: black;
+    background-color: grey;
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 1px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button1:hover {
+    background-color: black;
+    color: grey;
+  }
+  .button5{
+    color: black;
+    background-color: grey;
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 1px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .button5:hover {
+    background-color: black;
+    color: grey;
+  }
+  .button2 {
+    color: white;
+    background-color: #1ed760; 
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 1px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  
+  
+  }
+  
+  .button2:hover {
+    background-color: grey;
+    color: white;
+  }
+  .forbuttons{
+    font-size: 20px;
+    text-align: center;
+  }
+  .button3 {
+    color:black;
+    background-color:  white;
+    width: 200px;
+    height: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 1px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  
+  
+  }
+  
+  .button3:hover {
+    background-color: grey;
+    color: black;
+  }
+  .button6 {
+    color:black;
+    background-color:  white;
+    width: 200px;
+    height: 20px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 1px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  
+  
+  }
+  
+  .button6:hover {
+    background-color: grey;
+    color: black;
+  }

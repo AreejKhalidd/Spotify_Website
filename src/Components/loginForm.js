@@ -224,7 +224,7 @@ onSubmit = e => {
           LOG IN
         </button>{" "}
         <br />
-        <a href="/page" className="hyperLink">
+        <a href="/ForgetPassword" className="hyperLink">
           Forgot your password?
         </a>
         <hr />

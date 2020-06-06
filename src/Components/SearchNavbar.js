@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Avatar } from "antd";
 import "./SearchNavbar.css";
 import { UserOutlined } from '@ant-design/icons';
+//import SearchforSongsArt from 'SearchforSongsArt.js'
 
 /**
  * Navbar for Search pages
@@ -11,6 +12,8 @@ class SearchNavbar extends Component {
     super(props);
  this.state = {
      file:"",
+     stringg:"",
+     yes:false
 
 };
 }
@@ -42,6 +45,14 @@ this.setState({file:response.file});
 })
 }
 
+gotosearch =e =>{
+
+  window.location.href = "/SearchforSongsArt";
+}
+onChangestring =e =>{
+  this.setState({stringg:e.target.value});
+  localStorage.setItem('stringg',this.state.stringg);
+}
 
   render() {
     return (
@@ -68,7 +79,13 @@ this.setState({file:response.file});
                   className="search_input"
                   type="text"
                   name=""
-                  placeholder="Search for Artists, Songs, or Podcasts "
+                  placeholder="Search for Artists or Songs then Press Enter "
+                  onChange={this.onChangestring}
+                  onKeyPress={(e) =>{
+                    if(e.key==="Enter"){
+                      this.gotosearch()
+                    }
+                  }}
                 />
                 <i className="search_icon">
                   <i className="fas fa-search"></i>

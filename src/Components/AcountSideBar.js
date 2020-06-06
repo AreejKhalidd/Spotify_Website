@@ -32,22 +32,20 @@ render(){
                     <a href="/Recover" className="buttons">Recover Playlist</a>
                 </li>
                 <li>
-                    <a href="/Home" className="buttons">Change Password</a>
+                    <a href="/EditPassword" className="buttons">Edit Password</a>
                 </li>
-                <li>
-                    <a href="/Home" className="buttons">Privacy Setting</a>
-                </li>
+                
                 <li>
                     <a href="/Home" className="buttons">Recipits</a>
                 </li>
                 <li>
-                    <a href="/Home"className="buttons">Apps</a>
+                    <a href="/Movetoprem"className="buttons">Move to Premium</a>
                 </li>
                 <li>
                     <a href="/Home"className="buttons">Notifications Setting</a>
                 </li>
                 <li>
-                    <a href="/Home"className="buttons">Redeem</a>
+                    <a href="/Home"className="buttons">Go Back Home</a>
                 </li>
             </ul>
 

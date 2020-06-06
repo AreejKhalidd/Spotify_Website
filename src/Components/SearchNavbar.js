@@ -44,11 +44,20 @@ this.setState({file:response.file});
 })    
 })
 }
+          /**
+    * update the input from user
+    * @function dosearch
+    * @param {event} e - onChange event
+    */
 
 gotosearch =e =>{
-
   window.location.href = "/SearchforSongsArt";
 }
+          /**
+    * update the input from user
+    * @function onChangestrng
+    * @param {event} e - onChange event
+    */
 onChangestring =e =>{
   this.setState({stringg:e.target.value});
   localStorage.setItem('stringg',this.state.stringg);

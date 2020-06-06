@@ -18,6 +18,25 @@ const songs=[ //there are always function that fetch songs from server
       albumName:"Amareen"
   },
 
+{
+  id:2,
+  name:"Get ala baly",
+  duration:"3",
+  artist:"",
+  artistName:"Amier mounieb",
+  albumLink:"",
+  albumName:"bena ne3esh"
+},
+{
+  id:3,
+  name:"Esh be shou2k",
+  duration:"3",
+  artist:"",
+  artistName:"tamer hosney",
+  albumLink:"",
+  albumName:"Esh be shou2k"
+},
+
 ]
 
 
@@ -73,11 +92,7 @@ class SearchforSongsArt extends Component {
     } 
     */
 
-          /**
-    * update the input from user
-    * @function dosearch
-    * @param {event} e - onChange event
-    */
+
  
 
    render () {

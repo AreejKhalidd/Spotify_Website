@@ -10,7 +10,7 @@ import "react-notifications-component/dist/theme.css";
 
 class Navbar extends React.Component {
   render() {
-    if (window.location.href === "http://localhost:3000/search") {
+    if (window.location.href === "http://localhost:3000/search" || window.location.href === "http://localhost:3000/SearchforSongsArt") {
       return <SearchNavbar />;
     }
     if (

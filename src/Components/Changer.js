@@ -49,6 +49,7 @@ class Changer extends Component {
    <li
               className="pickFileButton"
               onClick={() => this.fileInput.click()}
+              style={{marginLeft:90}}
             >
               <div onSubmit={this.onSubmit}>
                 <input
@@ -63,7 +64,7 @@ class Changer extends Component {
             </li> <br></br>
 
             
-         <h6>Then please refresh to save changes.</h6> <br></br>
+         <h6 style={{marginLeft:100}}>Then please refresh to save changes.</h6> <br></br>
          
          </div>
        );

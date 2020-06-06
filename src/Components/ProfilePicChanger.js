@@ -57,17 +57,14 @@ this.props.onSelect(e.target.value)
     console.log(this.state.file)
      
     return (
-      <div>
-        { <Avatar size={250} icon={<UserOutlined />} src={this.state.file}  className="change" />  }
+      <div style={{backgroundImage:'url("./s5.jpg")', backgroundSize:'cover'}}> <br></br>
+        { <Avatar size={250} icon={<UserOutlined />} src={this.state.file}  className="change" style={{marginLeft:100}} />  }
          <br></br> <br></br>
         <hr></hr>
        
         <Changer /><hr></hr>
         <h4 style={{marginRight:450}}>Or share your profile to:</h4>
         <Subnavbar/> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br> <br></br>
-        <a className="btn3" href="/Home" disabled={isLoading}>
-          Back to home page
-        </a>
       </div>
     );
         

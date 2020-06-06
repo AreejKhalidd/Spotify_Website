@@ -127,10 +127,10 @@ class PageContent extends Component {
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/ProfilePicChanger"
     ) {
-      this.props.setShowSideBar(false);
+      //this.props.setShowSideBar(false);
       return (
-        <div style={{ background: "white", paddingRight: "300px", paddingBottom: "600px",paddingTop: "100px" }}>
-          <Img />
+        <div style={{backgroundSize:"cover"}}> <br></br>
+          
           <ProfilePicChanger />
         </div>
       );

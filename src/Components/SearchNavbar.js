@@ -13,7 +13,8 @@ class SearchNavbar extends Component {
  this.state = {
      file:"",
      stringg:"",
-     yes:false
+     yes:false,
+     name:localStorage.getItem('tokenfromlogin')
 
 };
 }
@@ -105,7 +106,7 @@ onChangestring =e =>{
           <li className="nav-item dropdown">
             <div className="dropdown">
               <button className="dropbtn">
-                <Avatar  size="small" icon={<UserOutlined />} src={this.state.file} /> Username
+                <Avatar  size="small" icon={<UserOutlined />} src={this.state.file} /> {this.state.name}
                 <i className="fa fa-caret-down"></i>
               </button>
               <div id="myDropdown" className="dropdown-content">

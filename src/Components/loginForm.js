@@ -98,9 +98,9 @@ this.setState({user:resp})
       this.setState({loggedIn:true});
       this.setState({passname:this.state.data});
       console.log(this.state.data);
-     var h =response.accesstoken;
-      localStorage.setItem('tokenfromlogin',h)
-     
+     //var h =response.accesstoken;
+      localStorage.setItem('tokenfromlogin',response.name)
+      
     } else {
       this.setState({loggedIn:false});
       this.setState({passname:"No Name"});

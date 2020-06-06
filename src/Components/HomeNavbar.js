@@ -13,6 +13,7 @@ class HomeNavbar extends Component {
     super(props);
  this.state = {
      file:"",
+     name:localStorage.getItem('tokenfromlogin')
 
 };
 }
@@ -73,7 +74,7 @@ this.setState({file:response.file});
           >
             <div className="dropdown">
               <button className="dropbtn">
-                <Avatar size="small" icon={<UserOutlined />} src={this.state.file} /> Username
+                <Avatar size="small" icon={<UserOutlined />} src={this.state.file} /> {this.state.name}
                 <i className="fa fa-caret-down"></i>
               </button>
               <div id="myDropdown" className="dropdown-content">

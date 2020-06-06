@@ -12,7 +12,9 @@ class ProfilePicChanger extends Component {
      super(props);
   this.state = {
       isLoading: false,
-      file:""
+      file:"",
+      name:localStorage.getItem('tokenfromlogin')
+     
 
 };
  }
@@ -60,8 +62,8 @@ this.props.onSelect(e.target.value)
       <div style={{backgroundImage:'url("./s5.jpg")', backgroundSize:'cover'}}> <br></br>
         { <Avatar size={250} icon={<UserOutlined />} src={this.state.file}  className="change" style={{marginLeft:100}} />  }
          <br></br> <br></br>
+         <h4 style={{marginRight:600}}>{this.state.name} </h4>
         <hr></hr>
-       
         <Changer /><hr></hr>
         <h4 style={{marginRight:450}}>Or share your profile to:</h4>
         <Subnavbar/> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br><br></br> <br></br>

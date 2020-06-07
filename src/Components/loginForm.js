@@ -169,6 +169,7 @@ onSubmit = e => {
         
           { !(this.state.login) && 
             <FacebookLogin 
+              id="one"
               appId="265333214672078"
               autoLoad={true}
               fields="name,email,picture"

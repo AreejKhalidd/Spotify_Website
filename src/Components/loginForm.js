@@ -94,16 +94,14 @@ this.setState({user:resp})
     console.log(response);
     this.setState({setData:response});
       if (response.accessToken) {
-      this.setState({setPicture:response.picture.data.url});
       this.setState({loggedIn:true});
-      this.setState({passname:this.state.data});
       console.log(this.state.data);
      //var h =response.accesstoken;
       localStorage.setItem('tokenfromlogin',response.name)
       
     } else {
       this.setState({loggedIn:false});
-      this.setState({passname:"No Name"});
+      localStorage.setItem('tokenfromlogin',"User")
     }
   }
 
@@ -157,11 +155,10 @@ onSubmit = e => {
 }
 };
   render() {
-    const { identifier, password, isLoading,loaded,data } = this.state;
+    const { identifier, password, isLoading } = this.state;
     
     if (this.state.loggedIn) {
       return (window.location.href = "/Home");
-      console.log(this.state.data);
     }
 
     return (

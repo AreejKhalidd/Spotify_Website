@@ -73,8 +73,8 @@ class Subshare extends Component {
          if(window.location.href === "http://localhost:3000/Home"){
         return(
           <div>
-           <li style={{marginLeft:950}}>
-      <li 
+           
+      <li style={{marginLeft:950}}
         className="network"
       >
         <FacebookShareButton
@@ -87,7 +87,7 @@ class Subshare extends Component {
           />
         </FacebookShareButton>
       </li>
-      <li 
+      <li style={{marginLeft:950}}
         className="network"
       >
     
@@ -103,7 +103,7 @@ class Subshare extends Component {
         </TwitterShareButton>
       </li>
 
-      <li 
+      <li style={{marginLeft:950}}
         className="network"
       >
         <WhatsappShareButton
@@ -115,7 +115,6 @@ class Subshare extends Component {
             size={"1cm"}
           />
         </WhatsappShareButton>
-      </li>
       </li>
       </div>
     //</SubShareCSS>
@@ -125,13 +124,13 @@ class Subshare extends Component {
         
         return(
           <div>
-           <li style={{marginLeft:950}}>
-      <li 
+           
+      <li style={{marginLeft:950}}
         className="network"
       >
         <FacebookShareButton
          className="network__share-button"
-         url={"http://localhost:3000/collection/Receipts"}
+         url={"http://localhost:3000/collection/tracks"}
          quote={"From Spotify Website"}
         >
           <FacebookIcon
@@ -139,14 +138,14 @@ class Subshare extends Component {
           />
         </FacebookShareButton>
       </li>
-      <li 
+      <li style={{marginLeft:950}}
         className="network"
       >
     
 
         <TwitterShareButton
           className="network__share-button"
-          url={"http://localhost:3000/collection/Receipts"}
+          url={"http://localhost:3000/collection/tracks"}
           quote={"From Spotify Website"}
         >
           <TwitterIcon
@@ -155,19 +154,18 @@ class Subshare extends Component {
         </TwitterShareButton>
       </li>
 
-      <li 
+      <li style={{marginLeft:950}}
         className="network"
       >
         <WhatsappShareButton
           className="network__share-button"
-          url={"http://localhost:3000/collection/Receipts"}
+          url={"http://localhost:3000/collection/tracks"}
           quote={"From Spotify Website"}
         >
           <WhatsappIcon
             size={"1cm"}
           />
         </WhatsappShareButton>
-      </li>
       </li>
       </div>
     //</SubShareCSS>

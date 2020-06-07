@@ -64,7 +64,7 @@ class Changer extends Component {
             </li> <br></br>
 
             
-         <h6 style={{marginLeft:100}}>Then please refresh to save changes.</h6> <br></br>
+         <h5 style={{color:'purple', marginRight:600}}>Then please refresh to save changes.</h5> <br></br>
          
          </div>
        );

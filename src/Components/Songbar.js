@@ -15,10 +15,11 @@ class Songbar extends Component{
         this.state={
             Toggle :true,
             playbutton : <i onClick={this.toggle} id='Play' className="far fa-play-circle" title='Play'></i>,
-            totalMinutes:0,
-            totalSeconds:0,
-            currentMinute:0,
-            currentSecond:0,
+            totalMinutes:'00',
+            totalSeconds:'00',
+            currentMinute:'00',
+            currentSecond:'00',
+            progress:0,
             count:0
             
         };
@@ -28,6 +29,18 @@ class Songbar extends Component{
         
 
     }
+
+    componentDidMount(){
+        this.time = setInterval(() => {
+            this.timer()
+            this.progressBarReload()
+        }, 100);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.time);
+    }
+
     toggle(){
         console.log(this.state.Toggle);
         let opposite = !(this.state.Toggle);
@@ -64,21 +77,52 @@ class Songbar extends Component{
                 break;
             }
         }
-        this.setState({totalMinutes:min})
-        this.setState({totalSeconds:Math.floor(sec)})
-
+        if(min < 10){
+            let minstring = '0' + min.toString();
+            this.setState({totalMinutes:minstring})
+            
+        }
+        else{
+            this.setState({totalMinutes:min.toString()})
+        }
+        if(sec < 10){
+            let secstring = '0' + Math.floor(sec).toString();
+            this.setState({totalSeconds: secstring})
+        }
+        else{
+            this.setState({totalSeconds:(Math.floor(sec).toString())})
+        }
         
     }
 
     timer(){
         let currmin=sound.seek();
         currmin=Math.floor(currmin / 60);
-        this.setState({currentMinute:currmin})
+        if(currmin < 10){
+            let cminstring = '0' + currmin.toString();
+            this.setState({currentMinute:cminstring})   
+        }
+        else{
+            this.setState({currentMinute:currmin.toString()})
+        }
         let currsec=sound.seek();
         currsec=Math.floor(currsec%60);
-        this.setState({currentSecond:currsec});
+        if(currsec < 10){
+            let csecstring = '0' + currsec.toString();
+            this.setState({currentSecond:csecstring});   
+        }
+        else{
+            this.setState({currentSecond:currsec.toString()});
+        }
+        
 
        
+    }
+
+    progressBarReload(){
+        let prog = (sound.seek())
+        prog = (prog/(sound.duration()))*100
+        this.setState({progress:prog})
     }
 
     delay(time) {
@@ -118,7 +162,7 @@ class Songbar extends Component{
                 <i id='Previous' class="fas fa-step-backward"></i>
                 <i id='Repeat' className="fas fa-redo"></i>
                 <i id='Shuffle' className="fas fa-random"></i>
-                <ProgressBar  variant="success" id='Progress' now={50} />
+                <ProgressBar  variant="success" id='Progress' now={this.state.progress} />
                 <div className="ProgressTimeRemaining">{this.state.currentMinute}:{this.state.currentSecond}</div>
                 <div className="ProgressTimeTillEnd">{this.state.totalMinutes}:{this.state.totalSeconds}</div>
                 <i id='Queue' className="fas fa-bars"></i>
@@ -129,7 +173,7 @@ class Songbar extends Component{
             </div>
             
         );
-    
+
     }
     
 }

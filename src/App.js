@@ -7,6 +7,7 @@ import PageContent from "./PageContent";
 import Songbar from "./Components/Songbar";
 import Prem from "./Prem";
 import AcountSideBar from "./Components/AcountSideBar";
+import Ads from "./Components/AdsBar"
 
 import Artists from "./Components/Artists"; // added by michael
 import Albums from "./Components/Albums"; //abm
@@ -38,9 +39,9 @@ function App() {
           />
         </div>
 
-        <div className="PagesLayout">
+        <div className="PagesLayout ">
           {showPageContent ? (
-            <div className="ContentLayout blue">
+            <div className="ContentLayout blue ">
               <PageContent
                 setShowSideBar={setShowSideBar}
                 setShowPageContentt={setShowPageContentt}
@@ -89,6 +90,9 @@ function App() {
               <Route path="/collection/albums" />
               <Route path="/collection/tracks" />
             </Router>
+          </div>
+          <div className="Adsbarlayout">
+            <Ads  />
           </div>
           <div className="Songbarlayout">
             <Songbar  />

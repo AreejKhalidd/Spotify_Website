@@ -1,15 +1,16 @@
 import React from "react";
 import "./ArtistPage.css";
-
 import AboutArtistPage from "./AboutArtistPage";
 import OverviewArtistPage from "./OverviewArtistPage";
 import RelatedArtistPage from "./RelatedArtistPage";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Statistics from './Statistics'
 
 class ArtistPage extends React.Component {
   render() {
     if (window.location.href === "http://localhost:3000/amr-diab/about") {
       return (
-        <div>
+        <div className="ArtistPageLayout">
           <AboutArtistPage />
         </div>
       );
@@ -18,8 +19,8 @@ class ArtistPage extends React.Component {
       window.location.href === "http://localhost:3000/amr-diab"
     ) {
       return (
-        <div>
-          <OverviewArtistPage />
+        <div className="ArtistPageLayout">
+          <OverviewArtistPage  />
         </div>
       );
     }

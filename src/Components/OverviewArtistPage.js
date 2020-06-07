@@ -5,6 +5,7 @@ import Playbutton from "./PlayButton";
 import Follow from "./Follow";
 import axios from "axios";
 
+
 /**
  * Overview Page for Artists that contains list of songs and albums for each artist
  */
@@ -60,9 +61,9 @@ class OverviewArtistPage extends Component {
         <div className="Artist-profile">
           <h1 className="name">Amr Diab</h1>
           <ul className="buttons">
-            {/* <li id="play-btn">PLAY</li> */}
             <Playbutton />
             <Follow />
+            <a href='/statistics' id="stats-btn">Stats</a>
             <li
               className="pickFileButton"
               onClick={() => this.fileInput.click()}

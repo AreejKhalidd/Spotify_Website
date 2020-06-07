@@ -23,6 +23,9 @@ import ArtistPage from "./Components/ArtistPage";
 import DiscoverPage from "./Components/DiscoverPage";
 import FeaturedPlaylists from "./Components/FeaturedPlaylists";
 import RandomSongPage from "./Components/RandomSongPage";
+import Statistics from "./Components/Statistics"
+
+
 
 class PageContent extends Component {
   render() {
@@ -35,7 +38,7 @@ class PageContent extends Component {
 
     if (window.location.href === process.env.REACT_APP_CLIENT_URL + "/Home")
       return (
-        <div>
+        <div className="PagesLayout">
           <HomeContent />
         </div>
       );
@@ -148,6 +151,11 @@ class PageContent extends Component {
           <ArtistPage />
         </div>
       );
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/statistics"
+    )
+      return <Statistics />;
     else if (
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/amr-diab/about"

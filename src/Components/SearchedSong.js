@@ -1,14 +1,8 @@
 import React from "react";
-import "./LikedSong.css";
+import "./SearchedSong.css";
 
-/**
- *
- * @property {Function} LikedSong - Liked Song that contains Song name, duration, artist name, artist link, album link, album name
- * @param {} library Song name, duration, artist name, artist link, album link, album name
- * @returns {} div that contains Liked song style
- */
-const LikedSong = ({
-  songName,
+const SearchedSong = ({
+  name,
   duration,
   artistLink,
   artistName,
@@ -21,7 +15,7 @@ const LikedSong = ({
         <li>
           <i className="fa fa-music music"></i>
           <i className="fa fa-play play"></i>
-          <span>{songName}</span>
+          <span>{name}</span>
           <i className="duration">{duration}</i>
           <br />
           <i>
@@ -33,4 +27,4 @@ const LikedSong = ({
     </div>
   );
 };
-export default LikedSong;
+export default SearchedSong;

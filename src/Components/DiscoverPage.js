@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import "./DiscoverPage.css";
 import DiscoverCardList from "./DiscoverCardList";
 
+/**
+ *
+ * @property {class} DiscoverPage - Discover page list that contains Discover Card list
+ * @param {}
+ * @returns {}
+ */
 class DiscoverPage extends Component {
   constructor() {
     super();
@@ -9,12 +15,23 @@ class DiscoverPage extends Component {
       Cards: [],
     };
   }
+
+  /**
+   * @property {Function} componentDidMount - fetch library cards data from a fake server
+   * @param {}
+   * @returns {}
+   */
   componentDidMount() {
     fetch("http://localhost:4000/discoverPage")
       .then((response) => response.json())
       .then((users) => this.setState({ Cards: users }));
   }
 
+  /**
+   * @property {Function} render - renders card lists fetched from a fake server
+   * @param {}
+   * @returns {} div contains all libraries list fetched from a fake server
+   */
   render() {
     if (this.state.Cards.length === 0) {
       return (
@@ -30,7 +47,9 @@ class DiscoverPage extends Component {
               </a>
             </div>
           </div>
-          <h1 style={{ color: "white", fontSize: "bold" }}>Loading...</h1>
+          <h1 style={{ color: "white", fontSize: "bold" }}>
+            Loading <i class="fas fa-spinner fa-pulse"></i>
+          </h1>
         </div>
       );
     }

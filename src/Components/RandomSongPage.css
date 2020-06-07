@@ -85,3 +85,13 @@
 .container:hover img {
   opacity: 0.2;
 }
+
+.commentBtn {
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border-color: black;
+  width: 40px;
+  margin-left: 120px;
+  margin-top: 0px;
+}

@@ -10,7 +10,7 @@ import "react-notifications-component/dist/theme.css";
 
 class Navbar extends React.Component {
   render() {
-    if (window.location.href === "http://localhost:3000/search") {
+    if (window.location.href === "http://localhost:3000/search" || window.location.href === "http://localhost:3000/SearchforSongsArt") {
       return <SearchNavbar />;
     }
     if (
@@ -21,7 +21,11 @@ class Navbar extends React.Component {
       window.location.href === "http://localhost:3000/Recover" ||
       window.location.href === "http://localhost:3000/AccountoverView" ||
       window.location.href === "http://localhost:3000/EditProfile" ||
-      window.location.href === "http://localhost:3000/account"
+      window.location.href === "http://localhost:3000/account"  ||
+      window.location.href === "http://localhost:3000/EditProfile" ||
+      window.location.href === "http://localhost:3000/EditPassword" ||
+      window.location.href === "http://localhost:3000/EditProfile" ||
+      window.location.href === "http://localhost:3000/Movetoprem"
     ) {
       return <CollectionNavbar />;
     }

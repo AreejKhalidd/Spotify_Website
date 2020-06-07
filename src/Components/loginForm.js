@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import FacebookLogin from 'react-facebook-login';
+import { Card, Image } from 'react-bootstrap';
 import "./login.css";
 import "./page.js";
-//import { response } from "express";
 
 class Loginform extends Component {
   constructor(props) {
@@ -15,6 +16,14 @@ class Loginform extends Component {
       loggedIn: false,
       loggingError: "",
       user:false,  //array of users
+      login:false,
+      setLogin:false,
+      data:{},
+      setData:{},
+     picture:'',
+     setPicture:'',
+     passName:"" //check later for change name inside
+
       
        
     };
@@ -23,12 +32,35 @@ class Loginform extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
+/*
+  componentDidMount(){
+    let url= process.env.URL + "/users/login";
+    fetch(url,{
+      method:'GET',
+      headers:{
+        'Accept':'application/json',
+        'Content-TYpe':'application/json',
+      }
+    }).then((result)=> {
+     result.json().then((resp) =>{
 
+this.setState({user:resp})
+     })
+    })
+  } 
+  */
   onChange = e => {
     e.preventDefault();
     this.setState({ [e.target.name]: e.target.value });
   };
 
+
+//function documentation
+/*
+* Handles validations 
+*@function isValid
+*@param {event} 
+*/
   isValid() {
     if (this.state.identifier.length < 1 && this.state.password.length < 1) {
       this.setState({
@@ -52,50 +84,78 @@ class Loginform extends Component {
     }
   }
 
+//////////////////////////////////
+/**
+   * @property {Function} responseFacebook - Handle Login with Facebook request
+   * @param {}
+   * @returns {}
+   */
+   responseFacebook = (response) => {
+    console.log(response);
+    this.setState({setData:response});
+      if (response.accessToken) {
+      this.setState({loggedIn:true});
+      console.log(this.state.data);
+     //var h =response.accesstoken;
+      localStorage.setItem('tokenfromlogin',response.name)
+      
+    } else {
+      this.setState({loggedIn:false});
+      localStorage.setItem('tokenfromlogin',"User")
+    }
+  }
+
+/////////////////////////////////
 
 
-  onSubmit = e => {
+  //function documentation
+/*
+* Handles login submission
+*@function onSubmit
+*@param {event} - submit event
+*/
+onSubmit = e => {
+
     this.setState({ nameError: "", passwordError: "" });
     e.preventDefault();
 
     if (this.isValid()) {
       //-------------------------------------------------------
       let url=process.env.REACT_APP_URL + "/users/login";
-
+     
       let data ={
         'email':  this.state.identifier,
         'password': this.state.password,
       }
 
       console.log(data)
-      fetch(url,{
-        method:'POST',
-        headers:{
-          'Accept':'application/json',
-          'Content-Type':'application/json',
-        },
-        body:JSON.stringify(data)
-      })
-      .then((response)=> {
-          response.json().then((body) =>{
-            console.log(body)
-            console.log(response.status)
+   fetch(url,{
+    method:'POST',
+    headers:{
+      'Accept':'application/json',
+      'Content-TYpe':'application/json',
+    },
+    body:JSON.stringify(data)
+  }) .then((response)=> {
+    response.json().then((body) =>{
 
-            if(response.status == 400) {
-              this.setState({loggingError:"Incorrect user or password",loggedIn:false});
-            }
-            else {
-              this.setState({loggedIn: true});
-              var h =body.token;
-              
-              localStorage.setItem('tokenfromlogin',h)
-            }
-         })
-      })
+    console.log(body)
+    console.log(response.status)
+
+    if(response.status == 400) {
+      this.setState({loggingError:"Incorrect user or password",loggedIn:false});
     }
-  };
+    else {
+      this.setState({loggedIn: true});
+      var h =body.token;
+      localStorage.setItem('tokenfromlogin',h)
+    }
+  })
+})
+}
+};
   render() {
-    const { identifier, password, isLoading,loaded } = this.state;
+    const { identifier, password, isLoading } = this.state;
     
     if (this.state.loggedIn) {
       return (window.location.href = "/Home");
@@ -105,18 +165,38 @@ class Loginform extends Component {
       <form id="loginForm">
         <h3> To continue,log in to Spotify </h3>
         <div className="error">{this.state.loggingError}</div> <br />
-        <button
-          className="btn2"
-          
-            //alert("try later");
-            onClick={this.onSubmit}
-          
-          disabled={isLoading}
-        >
-          CONTINUE WITH FACEBOOK
-        </button>
+        
+        
+          { !(this.state.login) && 
+            <FacebookLogin 
+              id="one"
+              appId="265333214672078"
+              autoLoad={true}
+              fields="name,email,picture"
+              scope="public_profile,user_friends"
+              callback={this.responseFacebook}
+              icon="fa-facebook"
+              cssClass="btnFacebook" 
+              textButton = "&nbsp;&nbsp;Log In with Facebook"
+              />
+          }
+        
+          { (this.state.login) &&
+            <Image src={this.state.picture} roundedCircle />
+          }
+        
+        { (this.state.login) &&
+          <Card.Body>
+            <Card.Title>{this.state.data.name}</Card.Title>
+            <Card.Text>
+              {this.state.data.email}
+            </Card.Text>
+          </Card.Body>
+        }
+
         <h3>OR</h3>
         <input  
+          id="email"       
           name="identifier"
           field="identifier"
           value={identifier}
@@ -128,6 +208,7 @@ class Loginform extends Component {
         />
         <div className="error">{this.state.nameError}</div> <br />
         <input
+          id="password"
           name="password"
           field="password"
           value={password}
@@ -141,7 +222,7 @@ class Loginform extends Component {
           LOG IN
         </button>{" "}
         <br />
-        <a href="/page" className="hyperLink">
+        <a href="/ForgetPassword" className="hyperLink">
           Forgot your password?
         </a>
         <hr />

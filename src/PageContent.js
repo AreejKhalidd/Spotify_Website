@@ -24,6 +24,11 @@ import DiscoverPage from "./Components/DiscoverPage";
 import FeaturedPlaylists from "./Components/FeaturedPlaylists";
 import RandomSongPage from "./Components/RandomSongPage";
 import Statistics from "./Components/Statistics"
+import ProfilePicChanger from "./Components/ProfilePicChanger";
+import EditPassword from "./Components/EditPassword";
+import ForgetPassword from "./Components/ForgetPassword";
+import Movetoprem from "./Components/Movetoprem";
+import SearchforSongsArt from "./Components/SearchforSongsArt";
 
 
 
@@ -116,7 +121,27 @@ class PageContent extends Component {
           <Forgot />
         </div>
       );
-    } else if (
+
+      
+    } 
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/ProfilePicChanger"
+    ) {
+      //this.props.setShowSideBar(false);
+      return (
+        <div style={{backgroundSize:"cover"}}> <br></br>
+          
+          <ProfilePicChanger />
+        </div>
+      );
+
+      
+    } 
+
+
+    
+    else if (
       /*     else if (window.location.href === "http://localhost:3000/amer-mounib")
       return <Amer />; */
       window.location.href ===
@@ -237,7 +262,105 @@ class PageContent extends Component {
           <Recover />
         </div>
       );
-    } else if (
+    }
+    
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/EditPassword"
+    ) {
+      this.props.setShowSideBar(false);
+      this.props.setShowAcountSideBar(true);
+      return (
+        <div
+          style={{
+            background: "white",
+            paddingRight: "100px",
+            marginTop: "120px",
+          }}
+        >
+          {" "}
+          <EditPassword />
+        </div>
+      );
+    }
+
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/ForgetPassword"
+    ) {
+      this.props.setShowSideBar(false);
+      this.props.setShowAcountSideBar(false);
+      return (
+        <div
+          style={{
+            background: "white",
+            paddingRight: "100px"
+          }}
+        >
+          {" "}
+          <ForgetPassword />
+        </div>
+      );
+    }
+
+
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/Movetoprem"
+    ) {
+      this.props.setShowSideBar(false);
+      this.props.setShowAcountSideBar(true);
+      return (
+        <div
+          style={{
+            background: "white",
+            paddingRight: "100px",
+            marginTop: "120px",
+          }}
+        >
+          {" "}
+          <Movetoprem />
+        </div>
+      );
+    }
+
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/SearchforSongsArt"
+    ) {
+      
+      this.props.setShowSideBar(true);
+      this.props.setShowAcountSideBar(false);
+      return (
+        <div
+          style={{
+            background: "white",
+            paddingRight: "100px",
+            marginTop: "120px",
+          }}
+        >
+          {" "}
+          <SearchforSongsArt/>
+        </div>
+      );
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    else if (
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/browse/discover"
     ) {

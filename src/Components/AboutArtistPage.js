@@ -5,7 +5,7 @@ import Follow from "./Follow";
 import axios from "axios";
 
 /**
- * About Page for Artists that consatins biography of artist and some statistics about his listners
+ * About Page for Artists that contains biography of artist and some statistics about his listners
  */
 class AboutArtistPage extends Component {
   constructor() {

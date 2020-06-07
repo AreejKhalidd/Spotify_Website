@@ -2,12 +2,49 @@ import React, { Component } from "react";
 import NotificationButton from "./NotificationButton";
 import { Avatar } from "antd";
 import "./CollectionNavbar.css";
+import { UserOutlined } from '@ant-design/icons';
 
 /**
  * Navbar for collection page (playlist, podacst, albums, artist)
  * and it appears in account profile aslo
  */
 class CollectionNavbar extends Component {
+  constructor(props){
+    super(props);
+ this.state = {
+     file:"",
+     name:localStorage.getItem('tokenfromlogin')
+
+};
+}
+
+
+/**
+   * @property {Function} componentDidMount - get picture data form a fake server to the avatar
+   * @param {}
+   * @returns {}
+   */
+componentDidMount() {
+  let url= "http://localhost:4000/data";
+  fetch(url,{
+    method:'GET',
+    headers:{
+     'Accept':'application/json',
+      'Content-TYpe':'application/json',
+     'Authorization' :'Token'
+    }
+  }).then((results)=> {
+  results.json().then((response) =>{
+    console.log(response)
+    
+this.setState({file:response.file});
+
+
+ 
+})    
+})
+}
+
   render() {
     return (
       <div className="NavLayout">
@@ -44,7 +81,7 @@ class CollectionNavbar extends Component {
           <li className="nav-item dropdown">
             <div className="dropdown">
               <button className="dropbtn">
-                <Avatar src="./sultan.png" /> Username
+                <Avatar size="small" icon={<UserOutlined />} src={this.state.file} /> {this.state.name}
                 <i className="fa fa-caret-down"></i>
               </button>
               <div id="myDropdown" className="dropdown-content">

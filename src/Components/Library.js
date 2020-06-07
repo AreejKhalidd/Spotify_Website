@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import DiscoverCardList from "./DiscoverCardList";
 import "./Library.css";
+
+/**
+ * @property {Class} - library page that liked or created playlist added in
+ */
 class Library extends Component {
   constructor() {
     super();
@@ -15,8 +19,13 @@ class Library extends Component {
       .then((response) => response.json())
       .then((data) => this.setState({ cardData: data }));
   }
+
+  /**
+   * @property {Function}  render that renders button that if user doesn't have any playlists or playlists if user creates or likes
+   */
   render() {
-    console.warn(this.state.cardData);
+    console.warn(this.state.cardData[0]);
+    let data = this.state.cardData;
     if (this.state.cardData.length == 0) {
       return (
         <div className="playlists-page">
@@ -35,7 +44,9 @@ class Library extends Component {
     }
     return (
       <div className="playlists-page">
-        <DiscoverCardList Cards={this.state.cardData} />{" "}
+        <a href={data[0].link}>
+          <DiscoverCardList Cards={this.state.cardData} />
+        </a>
       </div>
     );
   }

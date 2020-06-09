@@ -25,7 +25,7 @@ this Function take user data to see if hee is type ->free
     componentDidMount(){
      // const tokenn =localStorage.getItem('tokenfromlogin')
       //let url= process.env.URL + "/me";
-      let url="http://127.0.0.1:8080/users.json";
+      let url="http://localhost:4000/users";
       fetch(url,{
         method:'GET',
         headers:{
@@ -162,10 +162,10 @@ this function change user type
 moveprem =e =>{  
     //e.preventDefault();     
                if(this.state.confirmcode===true){
-                this.setState({msg:"you are know premium!"});
+                this.setState({msg:""});
                     //const tokenn =localStorage.getItem('tokenfromlogin' )                   
                     let ur5l=process.env.URL + "/users/me";
-                     let l="http://127.0.0.1:8080/users.json";
+                     let l="http://localhost:4000/users";
                      let data={
                       'type' :"premium",
                       

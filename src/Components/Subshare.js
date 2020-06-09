@@ -58,7 +58,7 @@ class Subshare extends Component {
       >
         <WhatsappShareButton
           className="network__share-button"
-          url={this.changeUrl}
+          url={"http://localhost:3000/ProfilePicChanger"}
           quote={"From Spotify Websit"}
         >
           <WhatsappIcon
@@ -120,7 +120,56 @@ class Subshare extends Component {
     //</SubShareCSS>
   )
         }
-
+        if(window.location.href === "http://localhost:3000/browse/discover"){
+          return(
+            <div>
+             
+        <li style={{marginLeft:950}}
+          className="network"
+        >
+          <FacebookShareButton
+           className="network__share-button"
+           url={"http://localhost:3000/browse/discover"}
+           quote={"From Spotify Website"}
+          >
+            <FacebookIcon
+              size={"1cm"}
+            />
+          </FacebookShareButton>
+        </li>
+        <li style={{marginLeft:950}}
+          className="network"
+        >
+      
+  
+          <TwitterShareButton
+            className="network__share-button"
+            url={"http://localhost:3000/browse/discover"}
+            quote={"From Spotify Websit"}
+          >
+            <TwitterIcon
+              size={"1cm"}
+            />
+          </TwitterShareButton>
+        </li>
+  
+        <li style={{marginLeft:950}}
+          className="network"
+        >
+          <WhatsappShareButton
+            className="network__share-button"
+            url={"http://localhost:3000/browse/discover"}
+            quote={"From Spotify Websit"}
+          >
+            <WhatsappIcon
+              size={"1cm"}
+            />
+          </WhatsappShareButton>
+        </li>
+        </div>
+      //</SubShareCSS>
+    )
+          }
         
         return(
           <div>

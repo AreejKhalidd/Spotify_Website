@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Avatar } from "antd";
 import { UserOutlined } from '@ant-design/icons';
+import Subnavbar from "./Subnavbar";
 
 /**
  * Navbar for Liked Tracks page
@@ -80,6 +81,7 @@ this.setState({file:response.file});
             </div>
           </li>
         </ul>
+        <Subnavbar/>
       </div>
     );
   }

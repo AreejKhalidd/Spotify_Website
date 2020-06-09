@@ -1,0 +1,21 @@
+.special_modal .modal-content{
+    background-color:rgba(0, 0, 0, 0.85);
+    color: #000;
+}
+.special_modal .modal-title{
+    height: 4%;
+    text-overflow: ellipsis;
+    font-weight: 800;
+    font-size: 3em;
+    color: #fff;
+    align-items: center;
+}
+.special_modal .modal-header{
+    min-height: 5px;
+}
+.special_modal .modal-body{
+    min-height: 30px;
+}
+.special_modal .modal-dialog{
+    max-width: 50%;
+}

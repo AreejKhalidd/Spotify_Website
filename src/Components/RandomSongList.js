@@ -1,17 +1,20 @@
 import React from "react";
 import RandomSong from "./RandomSong";
+import { findAllByDisplayValue } from "@testing-library/react";
 
-const RandomSongList = ({ Songs }) => {
-  const cardComponents = Songs.map((user) => {
+const RandomSongList = (props) => {
+  const cardComponents = props.Songs.map(( user, idx) => {
     return (
       <RandomSong
-        key={user.id}
+        key={idx}
         songName={user.songName}
         duration={user.duration}
         artistLink={user.artistLink}
         artistName={user.artistName}
         albumLink={user.albumLink}
         albumName={user.albumName}
+        downloadRef={user.songRef}
+        isPremium = {props.isPremium}
       />
     );
   });

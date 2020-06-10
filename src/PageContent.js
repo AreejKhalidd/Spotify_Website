@@ -29,6 +29,7 @@ import EditPassword from "./Components/EditPassword";
 import ForgetPassword from "./Components/ForgetPassword";
 import Movetoprem from "./Components/Movetoprem";
 import SearchforSongsArt from "./Components/SearchforSongsArt";
+import NewPlaylist from "./Components/NewPlaylist";
 
 
 
@@ -374,8 +375,15 @@ class PageContent extends Component {
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/1"
     ) {
-      return <RandomSongPage />;
-    } else {
+      return <RandomSongPage isPremium={this.props.isPremium} />;
+    } 
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/collection/10"
+    ) {
+      return <NewPlaylist />;
+    }
+    else {
       return <Error />;
     }
   }

@@ -16,6 +16,8 @@ import Podcasts from "./Components/Podcasts"; //abm
 import PremiumCreddd from "./PremiumCreddd";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+
+
 function App() {
   const [showSideBar, setShowSideBar] = React.useState(true);
   const [showPageContent, setShowPageContent] = React.useState(true);
@@ -23,6 +25,8 @@ function App() {
   const [showAcountSideBar, setShowAcountSideBar] = React.useState(true);
   const [showPageContentt, setShowPageContentt] = React.useState(true);
   //
+
+  const [isPremium, setIsPremium] = React.useState(true);
 
   const [premiumContentHeight, setPremiumContentHeight] = React.useState(
     "100vh"
@@ -35,7 +39,7 @@ function App() {
           <Route
             exact
             path="/Premium/Credentials"
-            component={() => <PremiumCreddd />}
+            component={() => <PremiumCreddd setIsPremium = {setIsPremium} isPremium= {isPremium} />}
           />
         </div>
 
@@ -48,6 +52,7 @@ function App() {
                 setShowAcountSideBar={setShowAcountSideBar}
                 setShowPageContent={setShowPageContent}
                 setPremiumContentHeight={setPremiumContentHeight}
+                isPremium = {isPremium}
               />
             </div>
           ) : null}
@@ -71,7 +76,7 @@ function App() {
             <Route path="/search" />
             <Route path="/collection/playlists" />
 
-            <Route exact path="/Premium" component={() => <Prem />} />
+            <Route exact path="/Premium" component={() => <Prem/>} />
           </div>
           <div className="NavLayout">
             <Router>
@@ -93,7 +98,7 @@ function App() {
           </div>
           <div className="Adsbarlayout">
             <Ads  />
-          </div>
+          </div> 
           <div className="Songbarlayout">
             <Songbar  />
           </div>

@@ -16,7 +16,7 @@ class Songbar extends Component{
             Toggle :true,
             playbutton : <i onClick={this.toggle} id='Play' className="far fa-play-circle" title='Play'></i>,
             totalMinutes:'00',
-            totalSeconds:'00',
+            totalSeconds:'00', 
             currentMinute:'00',
             currentSecond:'00',
             progress:0,

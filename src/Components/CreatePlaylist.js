@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+import axios from "axios";
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap';
 import "./CreatePlaylist.css";
+
+let id = 504;
 
 export class CreatePlaylist extends Component{
     constructor(props){
         super(props)
         this.state = { playlists:[]}
+        //console.log("pp>> ", props)
     }
     addPlaylist(){
         const playlist = document.getElementById('PlaylistName').value
@@ -16,9 +20,38 @@ export class CreatePlaylist extends Component{
     }
 
     handleSubmit(event){
+        let postURL = "http://localhost:4000/NewPlaylists";
         event.preventDefault();
-
         alert(event.target.PlaylistName.value);
+        //console.log(this.props);
+        fetch(`http://localhost:4000/NewPlaylists`,
+        {
+            method:"POST", 
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                img : "https://i.picsum.photos/id/1037/5760/3840.jpg",
+                header: event.target.PlaylistName.value,
+                description: " ",
+                link: 10,
+                linkId: 101,
+                id: id
+
+            })
+        }).then(()=>{
+            console.log("ana henaaaa");
+            id++;
+             window.location.reload(false);
+    })
+            .catch(exception=>console.log(exception))
+            
+        
+
+
+
+
     } 
     render(){
         return(

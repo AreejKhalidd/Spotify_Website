@@ -7,20 +7,26 @@ import "./Library.css";
  * @property {Class} - library page that liked or created playlist added in
  */
 class Library extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       cardData: "",
       createPlaylistShow : false,
+      playlists: "",
     };
   }
   
   
   componentDidMount() {
+    let playlistsUrl = "http://localhost:4000/NewPlaylists";
     let url = "http://localhost:8080/Albums?q=123";
+    fetch(playlistsUrl)
+      .then((response) => response.json())
+      .then((data) => this.setState({ playlists: data })).catch(e=>console.log(e));
     fetch(url)
       .then((response) => response.json())
-      .then((data) => this.setState({ cardData: data }));
+      .then((data) => this.setState({ cardData: data })).catch(e=>console.log(e));
+
   }
 
   /**
@@ -28,9 +34,12 @@ class Library extends Component {
    */
   render() {
     let createPlaylistClose = () => this.setState({createPlaylistShow : false});
+    console.log("cardData length" , this.state.cardData.length);
+    console.log("playlists length" , this.state.playlists.length);
     console.warn(this.state.cardData[0]);
     let data = this.state.cardData;
-    if (this.state.cardData.length == 0) {
+    let playlistData =  this.state.playlists;
+    if ((this.state.cardData.length == 0) && (this.state.playlists.length == 0)) {
       return (
         <div className="playlists-page">
           <i id="playlists" className="fas" style={{ fontSize: "70px" }}>
@@ -49,18 +58,47 @@ class Library extends Component {
           <CreatePlaylist
             show = {this.state.createPlaylistShow}
             onHide = {createPlaylistClose}
+            setLibraryState = {this.setState}
           />
         </div>
       );
     }
-    return (
-      <div className="playlists-page">
+    if ((this.state.cardData.length == 0) && (this.state.playlists.length > 0)){
+      return (
+        <div className="playlists-page">
+        <a href={playlistData[0].link}>
+          <DiscoverCardList Cards={this.state.playlists} />
+        </a>
+        
+      </div>
+      );      
+
+    }
+    if ((this.state.playlists.length == 0) && (this.state.cardData.length > 0)){
+      return (
+        <div className="playlists-page">
         <a href={data[0].link}>
           <DiscoverCardList Cards={this.state.cardData} />
         </a>
-       
+        
       </div>
-    );
+      );      
+
+    }
+    return (
+      <div className="playlists-page">
+         <a href={playlistData[0].link}>
+          <DiscoverCardList Cards={this.state.playlists} />
+        </a>
+        <a href={data[0].link}>
+          <DiscoverCardList Cards={this.state.cardData} />
+        </a>
+      </div>
+    ); 
+
+      
+      
+   
   }
 }
 export default Library;

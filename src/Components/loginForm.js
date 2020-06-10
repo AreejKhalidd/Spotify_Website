@@ -167,11 +167,11 @@ onSubmit = e => {
         <div className="error">{this.state.loggingError}</div> <br />
         
         
-          { !(this.state.login) && 
+          
             <FacebookLogin 
               id="one"
               appId="265333214672078"
-              autoLoad={true}
+              autoLoad={false}
               fields="name,email,picture"
               scope="public_profile,user_friends"
               callback={this.responseFacebook}
@@ -179,20 +179,7 @@ onSubmit = e => {
               cssClass="btnFacebook" 
               textButton = "&nbsp;&nbsp;Log In with Facebook"
               />
-          }
-        
-          { (this.state.login) &&
-            <Image src={this.state.picture} roundedCircle />
-          }
-        
-        { (this.state.login) &&
-          <Card.Body>
-            <Card.Title>{this.state.data.name}</Card.Title>
-            <Card.Text>
-              {this.state.data.email}
-            </Card.Text>
-          </Card.Body>
-        }
+          
 
         <h3>OR</h3>
         <input  

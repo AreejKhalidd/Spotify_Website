@@ -7,7 +7,7 @@ import PageContent from "./PageContent";
 import Songbar from "./Components/Songbar";
 import Prem from "./Prem";
 import AcountSideBar from "./Components/AcountSideBar";
-import Ads from "./Components/AdsBar"
+import Ads from "./Components/AdsBar";
 
 import Artists from "./Components/Artists"; // added by michael
 import Albums from "./Components/Albums"; //abm
@@ -98,9 +98,10 @@ function App() {
           </div>
           <div className="Adsbarlayout">
             <Ads  />
-          </div> 
+          
+          </div>
           <div className="Songbarlayout">
-            <Songbar  />
+            <Songbar />
           </div>
         </div>
 
@@ -126,8 +127,6 @@ function App() {
             </Router>
           </div>
         </div>
-
-        
       </Router>
     </div>
   );

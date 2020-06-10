@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DiscoverCardList from "./DiscoverCardList";
-import {CreatePlaylist} from "./CreatePlaylist";
+import { CreatePlaylist } from "./CreatePlaylist";
 import "./Library.css";
 
 /**
@@ -15,8 +15,7 @@ class Library extends Component {
       playlists: "",
     };
   }
-  
-  
+
   componentDidMount() {
     let playlistsUrl = "http://localhost:4000/NewPlaylists";
     let url = "http://localhost:8080/Albums?q=123";
@@ -49,11 +48,14 @@ class Library extends Component {
           <h6 id="playlists2">
             We’ll help you make the perfect mixtape, minus the tape.
           </h6>
-          <a 
-            onClick = {()=> this.setState({createPlaylistShow : true})}
+          <a
+            onClick={() => this.setState({ createPlaylistShow: true })}
             id="playlists-icon"
           >
             CREATE NEW PLAYLIST
+          </a>
+          <a href="http://localhost:3000/browse/discover" id="playlists-icon">
+            LIKE EXISTING PLAYLIST
           </a>
           <CreatePlaylist
             show = {this.state.createPlaylistShow}

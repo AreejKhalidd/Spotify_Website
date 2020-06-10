@@ -23,7 +23,7 @@ class LikedSongsPage extends Component {
    * @returns {}
    */
   componentDidMount() {
-    fetch("http://localhost:4000/likedSong")
+    fetch("http://localhost:8080/likedSong")
       .then((response) => response.json())
       .then((users) => this.setState({ Songs: users }));
   }

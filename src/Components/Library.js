@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DiscoverCardList from "./DiscoverCardList";
-import {CreatePlaylist} from "./CreatePlaylist";
+import { CreatePlaylist } from "./CreatePlaylist";
 import "./Library.css";
 
 /**
@@ -11,11 +11,10 @@ class Library extends Component {
     super();
     this.state = {
       cardData: "",
-      createPlaylistShow : false,
+      createPlaylistShow: false,
     };
   }
-  
-  
+
   componentDidMount() {
     let url = "http://localhost:8080/Albums?q=123";
     fetch(url)
@@ -27,7 +26,8 @@ class Library extends Component {
    * @property {Function}  render that renders button that if user doesn't have any playlists or playlists if user creates or likes
    */
   render() {
-    let createPlaylistClose = () => this.setState({createPlaylistShow : false});
+    let createPlaylistClose = () =>
+      this.setState({ createPlaylistShow: false });
     console.warn(this.state.cardData[0]);
     let data = this.state.cardData;
     if (this.state.cardData.length == 0) {
@@ -40,15 +40,18 @@ class Library extends Component {
           <h6 id="playlists2">
             We’ll help you make the perfect mixtape, minus the tape.
           </h6>
-          <a 
-            onClick = {()=> this.setState({createPlaylistShow : true})}
+          <a
+            onClick={() => this.setState({ createPlaylistShow: true })}
             id="playlists-icon"
           >
             CREATE NEW PLAYLIST
           </a>
+          <a href="http://localhost:3000/browse/discover" id="playlists-icon">
+            LIKE EXISTING PLAYLIST
+          </a>
           <CreatePlaylist
-            show = {this.state.createPlaylistShow}
-            onHide = {createPlaylistClose}
+            show={this.state.createPlaylistShow}
+            onHide={createPlaylistClose}
           />
         </div>
       );
@@ -58,7 +61,6 @@ class Library extends Component {
         <a href={data[0].link}>
           <DiscoverCardList Cards={this.state.cardData} />
         </a>
-       
       </div>
     );
   }

@@ -29,6 +29,7 @@ import EditPassword from "./Components/EditPassword";
 import ForgetPassword from "./Components/ForgetPassword";
 import Movetoprem from "./Components/Movetoprem";
 import SearchforSongsArt from "./Components/SearchforSongsArt";
+import StatsTable from './Components/StatsTable'
 
 
 
@@ -56,7 +57,11 @@ class PageContent extends Component {
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/search"
     )
-      return <Search />;
+      return (
+        <div className="PagesLayout">
+          <Search />
+        </div>
+        );
     else if (
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/collection/playlists"
@@ -172,15 +177,20 @@ class PageContent extends Component {
       process.env.REACT_APP_CLIENT_URL + "/amr-diab/overview"
     )
       return (
-        <div>
-          <ArtistPage />
+        <div className="PagesLayout">
+         <ArtistPage />
         </div>
       );
     else if (
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/statistics"
     )
-      return <Statistics />;
+      return <Statistics  />;
+    else if (
+      window.location.href ===
+      process.env.REACT_APP_CLIENT_URL + "/songslist"
+    )
+      return <StatsTable />;
     else if (
       window.location.href ===
       process.env.REACT_APP_CLIENT_URL + "/amr-diab/about"

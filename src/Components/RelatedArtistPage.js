@@ -27,6 +27,8 @@ class RelatedArtistPage extends Component {
           <ul className="buttons">
             <Playbutton />
             <Follow />
+            <a href='/songslist' id="stats-btn">Stats</a>
+            <a href='/calendar' id="calendar-btn">Calendar</a>
             <li
               className="pickFileButton"
               onClick={() => this.fileInput.click()}

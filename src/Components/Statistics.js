@@ -9,23 +9,33 @@ import SpecificStats from './SpecificStats'
 
 const data = [
   ["", "", { role: "style" }],
-  ["Listeners", 2000, "red"],
-  ["Likes", 600, "color: blue"] // CSS-style declaration
+  ["Listeners", 50987453, "red"],
+  ["Likes", 12476598, "color: blue"] 
 ];
 const options = {
     is3D : true,
     legend: "none"
   };
 
+  /**
+   * Statistics class fetch the total data of a specified song 
+   */
 
 class Statistics extends React.Component {
   constructor(){
     super();
         this.state={
-            row:0
+            row:0,
+            // data:[]
             
         };
   }
+
+  // componentDidMount(){
+  //   fetch("http://127.0.0.1:8080/TamalyMa3ak.json")
+  //   .then((response) => response.json())
+  //   .then((viewofsongs) => this.setState({ data: viewofsongs }));
+  // }
 
 
 
@@ -46,7 +56,7 @@ class Statistics extends React.Component {
     }
     return (
       <div className="chartstyle" >
-        <h1 className="SgName">Tmly maak</h1>
+        <h1 className="SgName">Tamaly ma3ak</h1>
         <Chart
           chartType="ColumnChart"
           width="100%"

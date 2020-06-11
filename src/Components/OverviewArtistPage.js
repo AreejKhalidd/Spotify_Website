@@ -42,7 +42,8 @@ class OverviewArtistPage extends Component {
           <ul className="buttons">
             <Playbutton />
             <Follow />
-            <a href='/statistics' id="stats-btn">Stats</a>
+            <a href='/songslist' id="stats-btn">Stats</a>
+            <a href='/calendar' id="calendar-btn">Calendar</a>
             <li
               className="pickFileButton"
               onClick={() => this.fileInput.click()}
@@ -84,6 +85,7 @@ class OverviewArtistPage extends Component {
               <h1 class="popularHeader" dir="auto">Popular</h1>
               <section class="trackListContainer trackListContainerBugHack fullWidth">
                 <ol class="tracklist">
+
                 <div class="reactContextMenuWrapper">
                     <div draggable="true">
                       <li class="trackListRow trackListRowOneline" role="button" tabindex="0" data-testid="trackListRow">
@@ -117,7 +119,6 @@ class OverviewArtistPage extends Component {
                             <div class="tracklistName ellipsisOneLine" dir="auto">Tamaly ma3ak</div>
                           </div>
                         </div>
-                        
                         <div class="trackListCol trackListColDuration">
                           <div class="tracklistDuration tracklistMiddleAlign">
                             <span>3:51</span>

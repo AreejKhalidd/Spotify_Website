@@ -1,3 +1,17 @@
 .ImLayout{
     margin-left: 500px;
 }
+
+/* .Adsbarlayout{
+    position: fixed;
+    margin-top: 75vh;
+    margin-left: 0vw;
+    grid-column: 2/6;
+    grid-row: 7/10;
+    width: 87vw;
+    height: 15vh;
+    z-index: 10;
+    background-color:rgb(15, 15, 15);
+    color: white;
+    
+  } */

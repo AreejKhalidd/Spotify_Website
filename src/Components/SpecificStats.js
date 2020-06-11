@@ -126,6 +126,10 @@ const options = {
     legend: "none"
 };
 
+/**
+ * SpecificStats fetch the specific data by its year/month/day and display it
+ */
+
 class SpecificStats extends Component{
     constructor(){
         super();
@@ -133,12 +137,38 @@ class SpecificStats extends Component{
                 year:0,
                 month:'',
                 monlist:['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'],
-                yearlist:[2018,2019,2020]
-                
+                yearlist:[2018,2019,2020],
+                // Listen:[],
+                // Likes:[]
+                // yearLdata:[],
+                // monLdata:[],
+                // dayLdata:[],
+                // yearLidata:[],
+                // monLidata:[],
+                // dayLidata:[]
             }
     }
+
+    // componentDidMount(){
+    //     fetch("http://127.0.0.1:8080/TamalyMa3akListen.json")
+    //     .then((response) => response.json())
+    //     .then((data) => this.setState({ Listen: data }));
+    //     fetch("http://127.0.0.1:8080/TamalyMa3akLike.json")
+    //     .then((response) => response.json())
+    //     .then((data) => this.setState({ Like: data }));
+    // }
+
+    // Analyzedata(){
+    //     this.setState({dayLdata:this.state.Listen[0]})
+    //     this.setState({monLdata:this.state.Listen[1]})
+    //     this.setState({yearLdata:this.state.Listen[2]})
+    //     this.setState({dayLidata:this.state.Likes[0]})
+    //     this.setState({monLidata:this.state.Likes[1]})
+    //     this.setState({yearLidata:this.state.Likes[2]})
+    // }
+
     render(){
-        if(this.state.year === 2019){
+        if(this.state.year !== 0){
             let listen;
             if(this.props.datatype === 'Listen'){
                 listen = monLdata
@@ -148,7 +178,7 @@ class SpecificStats extends Component{
             }
             return (
                 <div className="chartstyle" >
-                    <h1 className="SgName">Tmly maak</h1>
+                    <h1 className="SgName">Tamaly Ma3ak</h1>
                     <Chart
                     chartType="ColumnChart"
                     width="100%"
@@ -176,7 +206,7 @@ class SpecificStats extends Component{
             
             );
           }
-        if(this.state.month === 'June'){
+        if(this.state.month !== ''){
             let listen;
             if(this.props.datatype === 'Listen'){
                 listen = dayLdata
@@ -186,7 +216,7 @@ class SpecificStats extends Component{
             }
             return (
                 <div className="chartstyle" >
-                    <h1 className="SgName">Tmly maak</h1>
+                    <h1 className="SgName">Tamaly Ma3ak</h1>
                     <Chart
                     chartType="ColumnChart"
                     width="100%"
@@ -209,7 +239,7 @@ class SpecificStats extends Component{
             }
             return(
                 <div className="chartstyle" >
-                    <h1 className="SgName">Tmly maak</h1>
+                    <h1 className="SgName">Tamaly Ma3ak</h1>
                     <Chart
                     chartType="ColumnChart"
                     width="100%"

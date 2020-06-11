@@ -1,19 +1,31 @@
 import React, { Component } from "react";
+import {SetPremiumUser} from './Components/IsPermium';
 import "./PremiumCreddd.css";
 
 class PremiumCred extends Component {
+
+  constructor(props){
+    super(props);
+    this.handleGetPremium = this.handleGetPremium.bind(this);
+  }
+
+  handleGetPremium() {
+    console.log("premium: ", this.props.isPremium);
+    this.props.setIsPremium(true);
+  }
+
   render() {
     return (
-      <div className="not">
+      <div>
         <React.Fragment>
-          <div class="wrap">
-            <div class="premium-checkout-container">
-              <section class="premium-checkout-header ">
-                <div class="header-container">
+          <div>
+            <div className="premium-checkout-container">
+              <section className="premium-checkout-header ">
+                <div className="header-container">
                   <h1>Get Premium</h1>
-                  <ul class="list-checkmarks list-unstyled">
-                    <li class="checkmark-item">
-                      <span class="checkmark">
+                  <ul className="list-checkmarks list-unstyled">
+                    <li className="checkmark-item">
+                      <span className="checkmark">
                         <svg
                           viewBox="0 0 24 24"
                           fill="transparent"
@@ -25,8 +37,8 @@ class PremiumCred extends Component {
                       </span>
                       Listen without the distraction of ads
                     </li>
-                    <li class="checkmark-item">
-                      <span class="checkmark">
+                    <li className="checkmark-item">
+                      <span className="checkmark">
                         <svg
                           viewBox="0 0 24 24"
                           fill="transparent"
@@ -38,8 +50,8 @@ class PremiumCred extends Component {
                       </span>
                       Play music with no phone service
                     </li>
-                    <li class="checkmark-item">
-                      <span class="checkmark">
+                    <li className="checkmark-item">
+                      <span className="checkmark">
                         <svg
                           viewBox="0 0 24 24"
                           fill="transparent"
@@ -55,25 +67,25 @@ class PremiumCred extends Component {
                 </div>
               </section>
 
-              <div class="container checkout-content">
-                <div class="row">
-                  <div class="col-sm-8 col-sm-offset-2 col-lg-10 col-lg-offset-1">
-                    <div class="row">
-                      <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
-                        <div class="selected-plan-header">
+              <div className="container checkout-content">
+                <div className="row">
+                  <div className="col-sm-8 col-sm-offset-2 col-lg-10 col-lg-offset-1">
+                    <div className="row">
+                      <div className="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3">
+                        <div className="selected-plan-header">
                           <div>Your plan</div>
                         </div>
 
-                        <div class="card card-selected">
-                          <div class="card-content">
-                            <span class="card-badge">1-month free trial</span>
-                            <h3 class="card-heading">Spotify Premium</h3>
-                            <h4 class="card-subheading">
+                        <div className="card card-selected">
+                          <div className="card-content">
+                            <span className="card-badge">1-month free trial</span>
+                            <h3 className="card-heading">Spotify Premium</h3>
+                            <h4 className="card-subheading">
                               <p>
                                 <strong>49.99 EGP</strong> / month after trial
                               </p>
                             </h4>
-                            <div class="card-terms">
+                            <div className="card-terms">
                               Cancel anytime.
                               <a
                                 href="https://www.spotify.com/legal/premium-promotional-offer-terms/"
@@ -86,26 +98,26 @@ class PremiumCred extends Component {
                             </div>
                           </div>
                         </div>
-                        <div class="credit credit-selected">
-                          <div class="embeddable-checkout">
-                            <p class="payment-picker-title">
+                        <div className="credit credit-selected">
+                          <div className="embeddable-checkout">
+                            <p className="payment-picker-title">
                               Credit or debit card
                             </p>
 
-                            <ul class="list-unstyled payment-method-icons">
-                              <li class="payment-method-icon">
+                            <ul className="list-unstyled payment-method-icons">
+                              <li className="payment-method-icon">
                                 <img
                                   src="//www.scdn.co/bundles/spotifycheckout/svg/cards/visa.svg"
                                   alt=""
                                 />
                               </li>
-                              <li class="payment-method-icon">
+                              <li className="payment-method-icon">
                                 <img
                                   src="//www.scdn.co/bundles/spotifycheckout/svg/cards/mastercard.svg"
                                   alt=""
                                 />
                               </li>
-                              <li class="payment-method-icon">
+                              <li className="payment-method-icon">
                                 <img
                                   src="//www.scdn.co/bundles/spotifycheckout/svg/cards/amex.svg"
                                   alt=""
@@ -199,7 +211,7 @@ class PremiumCred extends Component {
                               name="securityNum"
                             ></input>
 
-                            <p class="text-legal">
+                            <p className="text-legal">
                               You consent to get access to your Spotify
                               subscription immediately, and that if you don't
                               cancel before the trial ends on April 16, 2020,
@@ -217,7 +229,7 @@ class PremiumCred extends Component {
                               .
                             </p>
 
-                            <button className="ezXcOn eifmih">
+                            <button className="ezXcOn eifmih" onClick={this.handleGetPremium}>
                               Start my Spotify Premium
                             </button>
                           </div>

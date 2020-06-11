@@ -35,7 +35,7 @@ this Function take user data and his current password and fetch it
    componentDidMount(){
     // const tokenn =localStorage.getItem('tokenfromlogin')
      //let url= process.env.URL + "/me";
-     let url="http://127.0.0.1:8080/users.json";
+     let url="http://localhost:4000/users";
      fetch(url,{
        method:'GET',
        headers:{
@@ -71,9 +71,10 @@ this Function take user data and his current password and fetch it
       }
       //console.log("paswwordahhhh");
                if(this.state.newpassError===""){
+                this.setState({msg:""});
                     //const tokenn =localStorage.getItem('tokenfromlogin' )                   
                      let ur5l=process.env.URL + "/users/me";
-                     let l="http://127.0.0.1:8080/users.json";
+                     let l="http://localhost:4000/users";
                      let data={
                       'password' :this.state.newpassword,
                       

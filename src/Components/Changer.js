@@ -34,13 +34,7 @@ class Changer extends Component {
     return 1 * e;
   }
 
-   
-       handleSave = e => {
-        this.setState({
-          change: false,
-        });
-       alert('Saved')
-       };
+  
    
      render() {
          

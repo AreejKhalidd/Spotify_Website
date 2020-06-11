@@ -7,7 +7,7 @@ import PageContent from "./PageContent";
 import Songbar from "./Components/Songbar";
 import Prem from "./Prem";
 import AcountSideBar from "./Components/AcountSideBar";
-import Ads from "./Components/AdsBar"
+import Ads from "./Components/AdsBar";
 
 import Artists from "./Components/Artists"; // added by michael
 import Albums from "./Components/Albums"; //abm
@@ -15,7 +15,7 @@ import Podcasts from "./Components/Podcasts"; //abm
 
 import PremiumCreddd from "./PremiumCreddd";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Cal from "./Components/Calendar";
+import Cal from './Components/Calendar'
 
 function App() {
   const [showSideBar, setShowSideBar] = React.useState(true);
@@ -25,11 +25,13 @@ function App() {
   const [showPageContentt, setShowPageContentt] = React.useState(true);
   //
 
+  const [isPremium, setIsPremium] = React.useState(true);
+
   const [premiumContentHeight, setPremiumContentHeight] = React.useState(
     "100vh"
   );
 
-  if (window.location.href === process.env.REACT_APP_CLIENT_URL + "/calendar"){
+  if(window.location.href === process.env.REACT_APP_CLIENT_URL + "/calendar"){
     return <Cal/>
   }
   else{
@@ -40,7 +42,12 @@ function App() {
             <Route
               exact
               path="/Premium/Credentials"
-              component={() => <PremiumCreddd />}
+              component={() => (
+                <PremiumCreddd
+                  setIsPremium={setIsPremium}
+                  isPremium={isPremium}
+                />
+              )}
             />
           </div>
   
@@ -53,6 +60,7 @@ function App() {
                   setShowAcountSideBar={setShowAcountSideBar}
                   setShowPageContent={setShowPageContent}
                   setPremiumContentHeight={setPremiumContentHeight}
+                  isPremium={isPremium}
                 />
               </div>
             ) : null}
@@ -98,9 +106,10 @@ function App() {
             </div>
             {/* <div className="Adsbarlayout">
               <Ads  />
+            
             </div> */}
             <div className="Songbarlayout">
-              <Songbar  />
+              <Songbar />
             </div>
           </div>
   
@@ -126,14 +135,11 @@ function App() {
               </Router>
             </div>
           </div>
-  
-          
         </Router>
       </div>
     );
 
   }
-  
 }
 
 export default App;

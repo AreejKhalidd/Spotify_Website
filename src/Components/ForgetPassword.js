@@ -36,7 +36,7 @@ this Function take user data and his current email to send code to it
     componentDidMount(){
       const tokenn =localStorage.getItem('tokenfromlogin')
       let url2= process.env.URL + "/me";
-      let url='http://127.0.0.1:8080/users.json';
+      let url='http://localhost:4000/users';
       fetch(url,{
         method:'GET',
         headers:{
@@ -63,10 +63,10 @@ this Function take user data and his current email to send code to it
     //e.preventDefault();     
     if(this.state.newpassError==="" && this.state.confirmcode===true){
                
-                   this.setState({msg:"password is changed!"});
+                   this.setState({msg:""});
                     const tokenn =localStorage.getItem('tokenfromlogin' )                   
                      //let ur5l=process.env.URL + "/users/me";
-                     let url='http://127.0.0.1:8080/users.json';
+                     let url='http://localhost:4000/users';
                      let data={
                       'password' :this.state.newpassword,
                       

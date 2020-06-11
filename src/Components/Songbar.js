@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import {Howl} from 'howler';
 import './Songbar.css'
+import axios from 'axios'
 
 
 const songs=[
@@ -46,9 +47,7 @@ const songs=[
     }
 ]
 
-// const soundsong = ["https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/wwy.mp3","https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-// "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3","https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
-// "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3","https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"]
+
 
 let sound =null;
 
@@ -79,7 +78,12 @@ class Songbar extends Component{
             volume:100,
             songsCount:5,
             playedSong:0,
-            count:0
+            count:0,
+
+            likedSong: [],
+            heart: "far fa-heart",
+            heartColor: "white",
+            isLiked: false
             
         };
        
@@ -97,6 +101,10 @@ class Songbar extends Component{
 
     componentDidMount(){
         //Mocking
+        // let url = "http://localhost:4000/likedSong";
+        // fetch(url)
+        // .then((response) => response.json())
+        // .then((data) => this.setState({ likedSong: data }));
         // fetch("http://127.0.0.1:8080/queuesongs.json")
         // .then((response) => response.json())
         // .then((songbardata) => this.setState({ songs: songbardata }));
@@ -110,8 +118,8 @@ class Songbar extends Component{
 
     componentWillUnmount() {
         clearInterval(this.time);
-    }
 
+    }
     /**
      * SongsAnalyze function fill the artist name,song name, song picture and song url in arrays seperatly to manipulate the needed data easily,
      *  it is called after render immediately, exactly in componentdidmount function due to react life cycle 
@@ -234,8 +242,8 @@ class Songbar extends Component{
             this.toggle()
             
         }
-    }
 
+    }
 
     /**
      * getTime function get the full time of the song 'its duration' by minutes and seconds
@@ -267,8 +275,9 @@ class Songbar extends Component{
         else{
             this.setState({totalSeconds:(Math.floor(sec).toString())})
         }
-        
     }
+        
+
 
     /**
      * timer function get the current time of the song by minutes and seconds
@@ -303,58 +312,98 @@ class Songbar extends Component{
      */
 
     progressBarReload(){
-        if(this.state.count !== 0){
-            let prog = (sound.seek())
-            prog = (prog/(sound.duration()))*100
-            this.setState({progress:prog})
-        }  
+      if(this.state.count !== 0){
+          let prog = (sound.seek())
+          prog = (prog/(sound.duration()))*100
+          this.setState({progress:prog})
+      }  
+  }
+
+
+
+  handleLike = () => {
+    let postURL = "http://localhost:8080/likedSong";
+    this.setState({
+      isLiked: true,
+    });
+    if (this.state.heartColor === "white") {
+      this.setState({ heartColor: "green", heart: "fas fa-heart fullHeart" });
+
+      axios
+        .post(postURL, this.state.likedSong[0])
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
+
+    if (this.state.heartColor === "green") {
+      this.setState({ heart: "fas fa-heart" });
+      axios
+        .delete("http://localhost:8080/likedSong/2", this.state.likedSong[0])
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      console.warn("Card Data", this.state.likedSong);
+      this.setState({ heartColor: "white" });
+    }
+  };
+
 
     
     
     
-    render(){
-        if(this.state.Toggle === true){
-            this.state.playbutton = <i onClick={this.toggle} id='Play' className="far fa-play-circle" title='Play'></i> ;
-            
-        }
-        else{
-            this.state.playbutton = <i onClick={this.toggle} id='Play' className="far fa-pause-circle" title='Pause'></i> ;
-        }
-        if(this.state.volControl === true){
-            this.state.volumebutton = <i onClick={this.volumeControl} id='Volume' className="fas fa-volume-up"></i>;  
-        }
-        else{
-            this.state.volumebutton = <i onClick={this.volumeControl} id='Volume' className="fas fa-volume-mute"></i>;
-        }
-        
-        
-        return(
-            <div className="SongbarShape">
-                <img className="SongImage" src={(this.state.songPhoto)[this.state.playedSong]} alt={(this.state.songName)[this.state.playedSong]} />
-                <i id="EnlargeImage" className="fas fa-chevron-circle-up"></i>
-                <a className='SongName'>{(this.state.songName)[this.state.playedSong]}</a>
-                <a className="ArtistName">{(this.state.artistName)[this.state.playedSong]}</a>
-                <i id="Like" className="far fa-heart"></i>
-                {this.state.playbutton}
-                <i onClick={this.nextSong} id='Next' className="fas fa-step-forward" title='Next'></i>
-                <i onClick={this.previousSong} id='Previous' class="fas fa-step-backward" title='Previous'></i>
-                <i id='Repeat' className="fas fa-redo"></i>
-                <i id='Shuffle' className="fas fa-random"></i>
-                <ProgressBar  variant="success" id='Progress' now={this.state.progress} />
-                <div className="ProgressTimeRemaining">{this.state.currentMinute}:{this.state.currentSecond}</div>
-                <div className="ProgressTimeTillEnd">{this.state.totalMinutes}:{this.state.totalSeconds}</div>
-                <i id='Queue' className="fas fa-bars"></i>
-                <i id='Connect' className="fas fa-tv"></i>
-                <i id='Device' className="fas fa-mobile-alt"></i>
-                {this.state.volumebutton}
-                <ProgressBar onClick={this.volumeControl}  variant="success" id='Volumebar' now={this.state.volume} />
-            </div>
-            
-        );
+    
+  render(){
 
+    console.warn("liked Song Data", this.state.likedSong);
+    if(this.state.Toggle === true){
+        this.state.playbutton = <i onClick={this.toggle} id='Play' className="far fa-play-circle" title='Play'></i> ;
+        
+    }
+    else{
+        this.state.playbutton = <i onClick={this.toggle} id='Play' className="far fa-pause-circle" title='Pause'></i> ;
+    }
+    if(this.state.volControl === true){
+        this.state.volumebutton = <i onClick={this.volumeControl} id='Volume' className="fas fa-volume-up"></i>;  
+    }
+    else{
+        this.state.volumebutton = <i onClick={this.volumeControl} id='Volume' className="fas fa-volume-mute"></i>;
     }
     
+    
+    return(
+        <div className="SongbarShape">
+            <img className="SongImage" src={(this.state.songPhoto)[this.state.playedSong]} alt={(this.state.songName)[this.state.playedSong]} />
+            <i id="EnlargeImage" className="fas fa-chevron-circle-up"></i>
+            <a className='SongName'>{(this.state.songName)[this.state.playedSong]}</a>
+            <a className="ArtistName">{(this.state.artistName)[this.state.playedSong]}</a>
+            <i id="Like" style={{ color: this.state.heartColor }} className={this.state.heart} onClick={this.handleLike}></i>
+            <i id="Like" className="far fa-heart"></i>
+            {this.state.playbutton}
+            <i onClick={this.nextSong} id='Next' className="fas fa-step-forward" title='Next'></i>
+            <i onClick={this.previousSong} id='Previous' class="fas fa-step-backward" title='Previous'></i>
+            <i id='Repeat' className="fas fa-redo"></i>
+            <i id='Shuffle' className="fas fa-random"></i>
+            <ProgressBar  variant="success" id='Progress' now={this.state.progress} />
+            <div className="ProgressTimeRemaining">{this.state.currentMinute}:{this.state.currentSecond}</div>
+            <div className="ProgressTimeTillEnd">{this.state.totalMinutes}:{this.state.totalSeconds}</div>
+            <i id='Queue' className="fas fa-bars"></i>
+            <i id='Connect' className="fas fa-tv"></i>
+            <i id='Device' className="fas fa-mobile-alt"></i>
+            {this.state.volumebutton}
+            <ProgressBar onClick={this.volumeControl}  variant="success" id='Volumebar' now={this.state.volume} />
+        </div>
+          
+      );
+  }
 }
+    
 
+ 
 export default Songbar;

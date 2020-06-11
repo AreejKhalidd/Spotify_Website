@@ -120,7 +120,7 @@ class RandomSongPage extends Component {
           </div>
         </div>
         <div className="col-xs-12 col-lg-9 col-xl-8">
-          <RandomSongList Songs={this.state.Songs} />
+          <RandomSongList Songs={this.state.Songs} isPremium={this.props.isPremium} />
         </div>
       </div>
     );

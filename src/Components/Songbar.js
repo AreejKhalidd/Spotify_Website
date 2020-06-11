@@ -112,16 +112,18 @@ class Songbar extends Component{
         // fetch("http://127.0.0.1:8080/queuesongs.json")
         // .then((response) => response.json())
         // .then((songbardata) => this.setState({ songs: songbardata }));
-        this.SongsAnalyze()
+            
+      fetch("http://localhost:4000/CurrentSong")
+      .then((response) => response.json())
+      .then((data) => this.setState({ playingSong: data })).catch(exception=>console.log("error in fetch >>",exception));
+
+      this.SongsAnalyze();
         // this.time = setInterval(() => {
         //     this.timer()
         //     this.progressBarReload()
         // }, 1000);
 
-         
-      fetch("http://localhost:4000/CurrentSong")
-        .then((response) => response.json())
-        .then((data) => this.setState({ playingSong: data }));
+     
     }
 
 
@@ -177,12 +179,13 @@ class Songbar extends Component{
      else {
         if (this.state.count === 0) {
           sound = new Howl({
-            src: this.state.playingSong[0].downloadRef,
+            src: this.state.playingSong[0].songRef,
             html5: true,
           });
+         
         }
       }
-      this.getTime()
+      this.getTime();
     }
 
     /**

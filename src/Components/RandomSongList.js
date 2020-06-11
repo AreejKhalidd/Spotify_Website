@@ -14,7 +14,7 @@ const RandomSongList = (props) => {
         artistName={user.artistName}
         albumLink={user.albumLink}
         albumName={user.albumName}
-        downloadRef={user.songRef}
+        songRef={user.songRef}
         isPremium = {props.isPremium}
       />
     );

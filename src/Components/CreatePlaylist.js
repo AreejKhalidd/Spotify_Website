@@ -4,7 +4,7 @@ import {Modal, Button, Row, Col, Form} from 'react-bootstrap';
 import "./CreatePlaylist.css";
 
 let id = 504;
-
+/**A modal pop up which creates a new playlist */
  class CreatePlaylist extends Component{
     constructor(props){
         super(props)

@@ -35,10 +35,13 @@ class Songbar extends Component {
       heart: "far fa-heart",
       heartColor: "white",
       isLiked: false,
+
+      playingSong: [],
     };
 
     this.toggle = this.toggle.bind(this);
     this.timer = this.timer.bind(this);
+    this.render = this.render.bind(this);
   }
 
   componentDidMount() {
@@ -52,6 +55,10 @@ class Songbar extends Component {
     fetch(url)
       .then((response) => response.json())
       .then((data) => this.setState({ likedSong: data }));
+
+    fetch("http://localhost:4000/CurrentSong")
+      .then((response) => response.json())
+      .then((data) => this.setState({ playingSong: data }));
   }
 
   componentWillUnmount() {
@@ -173,6 +180,7 @@ class Songbar extends Component {
   };
 
   render() {
+
     console.warn("liked Song Data", this.state.likedSong);
     if (this.state.Toggle === true) {
       this.state.playbutton = (
@@ -193,48 +201,106 @@ class Songbar extends Component {
         ></i>
       );
     }
-    if (this.state.count === 0) {
-      sound = new Howl({
-        src: soundsong,
-        html5: true,
-      });
+    // let playsong = {song.songRef};
+    let playsong = "https://www.dlxfile.com/dl/3en/amr-diab/albums/me3ady-elnas/01%20Alby%20Etmannah.mp3";
+    if (this.state.playingSong.length == 0) {
+      if (this.state.count === 0) {
+        sound = new Howl({
+          src: soundsong,
+          html5: true,
+        });
+      }
     }
 
-    return (
-      <div className="SongbarShape">
-        <div className="SongImage"></div>
-        <i id="EnlargeImage" className="fas fa-chevron-circle-up"></i>
-        <a className="SongName">نور عينى</a>
-        <a className="ArtistName">Amr Diab</a>
-        <i
-          id="Like"
-          style={{ color: this.state.heartColor }}
-          className={this.state.heart}
-          onClick={this.handleLike}
-        ></i>
-        {this.state.playbutton}
-        <i id="Next" className="fas fa-step-forward"></i>
-        <i id="Previous" class="fas fa-step-backward"></i>
-        <i id="Repeat" className="fas fa-redo"></i>
-        <i id="Shuffle" className="fas fa-random"></i>
-        <ProgressBar
-          variant="success"
-          id="Progress"
-          now={this.state.progress}
-        />
-        <div className="ProgressTimeRemaining">
-          {this.state.currentMinute}:{this.state.currentSecond}
+    else {
+      if (this.state.count === 0) {
+        sound = new Howl({
+          src: this.state.playingSong[0].downloadRef,
+          html5: true,
+        });
+      }
+    }
+    if (this.state.playingSong.length == 0) {
+      return (
+        <div className="SongbarShape">
+          <div className="SongImage"></div>
+          <i id="EnlargeImage" className="fas fa-chevron-circle-up"></i>
+          <a className="SongName"> نور عيني</a>
+          <a className="ArtistName">Amr Diab</a>
+          <i
+            id="Like"
+            style={{ color: this.state.heartColor }}
+            className={this.state.heart}
+            onClick={this.handleLike}
+          ></i>
+          {this.state.playbutton}
+          <i id="Next" className="fas fa-step-forward"></i>
+          <i id="Previous" class="fas fa-step-backward"></i>
+          <i id="Repeat" className="fas fa-redo"></i>
+          <i id="Shuffle" className="fas fa-random"></i>
+          <ProgressBar
+            variant="success"
+            id="Progress"
+            now={this.state.progress}
+          />
+          <div className="ProgressTimeRemaining">
+            {this.state.currentMinute}:{this.state.currentSecond}
+          </div>
+          <div className="ProgressTimeTillEnd">
+            {this.state.totalMinutes}:{this.state.totalSeconds}
+          </div>
+          <i id="Queue" className="fas fa-bars"></i>
+          <i id="Connect" className="fas fa-tv"></i>
+          <i id="Device" className="fas fa-mobile-alt"></i>
+          <i id="Volume" className="fas fa-volume-up"></i>
+          <ProgressBar variant="success" id="Volumebar" now={50} />
         </div>
-        <div className="ProgressTimeTillEnd">
-          {this.state.totalMinutes}:{this.state.totalSeconds}
-        </div>
-        <i id="Queue" className="fas fa-bars"></i>
-        <i id="Connect" className="fas fa-tv"></i>
-        <i id="Device" className="fas fa-mobile-alt"></i>
-        <i id="Volume" className="fas fa-volume-up"></i>
-        <ProgressBar variant="success" id="Volumebar" now={50} />
-      </div>
+      );
+    }
+    else{
+     return (
+      
+        
+           
+         <div className="SongbarShape" key={0}>
+            <div className="SongImage"></div>
+            <i id="EnlargeImage" className="fas fa-chevron-circle-up"></i>
+            <a className="SongName"> {this.state.playingSong[0].songName}</a>
+            <a className="ArtistName"> {this.state.playingSong[0].artistName}</a>
+            <i
+              id="Like"
+              style={{ color: this.state.heartColor }}
+              className={this.state.heart}
+              onClick={this.handleLike}
+            ></i>
+            {this.state.playbutton}
+            <i id="Next" className="fas fa-step-forward"></i>
+            <i id="Previous" class="fas fa-step-backward"></i>
+            <i id="Repeat" className="fas fa-redo"></i>
+            <i id="Shuffle" className="fas fa-random"></i>
+            <ProgressBar
+              variant="success"
+              id="Progress"
+              now={this.state.progress}
+            />
+            <div className="ProgressTimeRemaining">
+              {this.state.currentMinute}:{this.state.currentSecond}
+            </div>
+            <div className="ProgressTimeTillEnd">
+              {this.state.totalMinutes}:{this.state.totalSeconds}
+            </div>
+            <i id="Queue" className="fas fa-bars"></i>
+            <i id="Connect" className="fas fa-tv"></i>
+            <i id="Device" className="fas fa-mobile-alt"></i>
+            <i id="Volume" className="fas fa-volume-up"></i>
+            <ProgressBar variant="success" id="Volumebar" now={50} />
+          </div>
+      
+      
     );
+    }
+
+
   }
 }
 

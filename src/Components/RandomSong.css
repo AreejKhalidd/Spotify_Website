@@ -57,7 +57,15 @@
 }
 
 .drop-down{
+  color : white;
+}
+
+.dropdown-menu{
   border-radius: 0;
   background-color: black;
   color: white;
+}
+.dropdown-toggle{
+  width: 2%;
+  height: 4px;
 }

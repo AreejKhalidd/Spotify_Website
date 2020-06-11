@@ -87,8 +87,9 @@ class NewPlaylist extends Component {
         <div className="col-xs-12 col-lg-9 col-xl-8">
           <h1 id="playlists1">Looks a bit empty in here</h1>
           <h6 id="playlists2">
-            Add songs to this playlist to enjoy listening!
+            <a href = "/browse/discover">Add songs</a> to this playlist to enjoy listening!
           </h6>
+          
           
         </div>
       </div>

@@ -3,7 +3,7 @@ import "./RandomSong.css";
 import { Modal,Dropdown } from "react-bootstrap";
 import IsPremiumUser from './IsPermium';
 
-let id = 100;
+let id = 101;
 
 const RandomSong = ({
   songName,
@@ -15,6 +15,7 @@ const RandomSong = ({
   downloadRef,
   isPremium
 }) => {
+  //alert("....", index)
   function handleClickAdd(e) {
     
     e.preventDefault();
@@ -66,8 +67,33 @@ const RandomSong = ({
   }
 
   function playSong(e){
+    //alert( index);
     e.preventDefault();
-
+    
+    fetch(`http://localhost:4000/CurrentSong/101`,
+        {
+            method:"PUT", 
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              songName,
+              duration,
+              artistLink,
+              artistName,
+              albumLink,
+              albumName,
+              downloadRef,
+              id:101
+            })
+        }).then(()=>{
+            console.log("ana henaaaa");
+            id++;
+             window.location.reload(false);
+    })
+            .catch(exception=>console.log(exception))
+      
   }
   
   return (

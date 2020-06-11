@@ -1,6 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
-import {CreatePlaylist} from "./CreatePlaylist";
+import CreatePlaylist from "./CreatePlaylist";
 
 class Sidebar extends React.Component {
   constructor(props){

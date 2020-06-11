@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import DiscoverCardList from "./DiscoverCardList";
-import { CreatePlaylist } from "./CreatePlaylist";
+import  CreatePlaylist from "./CreatePlaylist";
 import "./Library.css";
 
 /**

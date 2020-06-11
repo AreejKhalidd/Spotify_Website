@@ -5,7 +5,7 @@ import "./CreatePlaylist.css";
 
 let id = 504;
 
-export class CreatePlaylist extends Component{
+ class CreatePlaylist extends Component{
     constructor(props){
         super(props)
         this.state = { playlists:[]}
@@ -107,3 +107,5 @@ export class CreatePlaylist extends Component{
         );
     }
 }
+
+export default CreatePlaylist;
